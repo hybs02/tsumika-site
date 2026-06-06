@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・初期費用は年1,800円だけ】</title>
+<meta name="description" content="このサイト自体を、AI（Claude Code）で「記事が自動公開されるブログ」として構築した全工程を、実際の費用・時間・つまずきまで包み隠さず公開します。">
+<link rel="canonical" href="https://tsumika.net/ai-blog-build-log.html">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・初期費用は年1,800円だけ】">
+<meta property="og:description" content="このサイト自体を、AI（Claude Code）で「記事が自動公開されるブログ」として構築した全工程を、実際の費用・時間・つまずきまで包み隠さず公開します。">
+<meta property="og:url" content="https://tsumika.net/ai-blog-build-log.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・初期費用は年1,800円だけ】", "description": "このサイト自体を、AI（Claude Code）で「記事が自動公開されるブログ」として構築した全工程を、実際の費用・時間・つまずきまで包み隠さず公開します。", "url": "https://tsumika.net/ai-blog-build-log.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-06-03"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude Code・AIツールで放置収益を作る実体験メディア</p>
+</header>
+<main>
+<time>2026-06-03</time>
+<h1>AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・初期費用は年1,800円だけ】</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><span class="tag">実体験</span><span class="tag">Claude Code</span><span class="tag">GitHub Pages</span><span class="tag">自動化</span><span class="tag">ブログ運営</span></div>
+
+<p>この記事は、<strong>あなたが今読んでいるこのサイトそのものを、どうやって作ったか</strong>の実録です。「AIで放置型のブログを作る」とよく言われますが、実際どこまでできて、何にいくらかかり、どこでつまずくのか——<strong>自分でやった一次情報</strong>として、できるだけ正直に書きます。</p>
+<p>&gt; 結論を先に言うと、<strong>初期費用はドメイン代の年1,800円ほど（サーバー代0円）</strong>、構築はAIに手伝ってもらいながら半日。ただし「公開＝即収益」では当然なく、ここからが本番です。</p>
+<h2>作ったものの全体像</h2>
+<div class="ad"><!-- 広告枠（AdSense等）。承認後にここへ貼る --></div>
+<p>このサイトは、いわゆるWordPressのようなブログシステムを使っていません。構成はとてもシンプルです。</p>
+<ul>
+<li><strong>記事</strong>：テキストファイル（Markdown）で書く</li>
+<li><strong>サイト生成</strong>：自作のスクリプトがテキスト → HTMLに変換</li>
+<li><strong>公開</strong>：GitHub Pages（無料ホスティング）で配信</li>
+<li><strong>自動化</strong>：書き溜めた記事を1本ずつ自動で公開する仕組み</li>
+</ul>
+<p>この「軽さ」が、サーバー代0円・放置運用しやすさにつながっています。</p>
+<h2>使ったツールと費用（正直な内訳）</h2>
+<p>| 項目 | 内容 | 費用 | |---|---|---| | AIアシスタント | Claude Code（構築作業の相棒） | 利用プラン分 | | ホスティング | GitHub Pages | <strong>0円</strong> | | 独自ドメイン | <code>.net</code> をCloudflareで取得 | <strong>約1,800円/年</strong> | | サイト生成 | 自作スクリプト（無料の標準機能のみ） | 0円 |</p>
+<p>つまり<strong>毎年かかる固定費はドメイン代だけ</strong>。ここがこの構成の大きな利点です。</p>
+<h2>構築の流れ（実際の手順）</h2>
+<h3>1. 記事を「テキスト」で書ける仕組みにした</h3>
+<p>ブログ管理画面を使わず、テキストファイルを置けば記事になる形にしました。これだと量産も自動化もしやすい。<a href="./claude-code-towa.html" rel="nofollow noopener" target="_blank">Claude Codeとは？</a> で触れたように、こうした&quot;仕組みづくり&quot;はAIが得意とするところです。</p>
+<h3>2. テキスト → サイトに変換する部分を作った</h3>
+<p>タイトルや日付などの情報を読み取り、HTMLページ・トップページ・サイトマップ・RSSを自動生成するようにしました。ここはAIにコードを書いてもらい、動かしながら微調整。</p>
+<h3>3. GitHub Pagesで無料公開した</h3>
+<p>できあがったファイルをGitHubに置き、Pagesで公開。独自ドメインを当てる作業は、DNSとHTTPSのあたりで少し手が止まりました（このへんの詰まりどころは別記事で詳しく書きます）。</p>
+<h3>4. 「自動で1本ずつ公開」する仕組みにした</h3>
+<p>あらかじめ書いておいた記事を、毎回1本ずつ取り出して公開する仕組みを用意。これで「手を動かさなくても更新が続く」状態になります。</p>
+<h2>つまずいたポイント（リアルな話）</h2>
+<ul>
+<li><strong>文字化け</strong>：日本語の出力が崩れる問題に最初ぶつかりました（文字コードの指定で解決）。</li>
+<li><strong>独自ドメインの反映待ち</strong>：DNSやHTTPS証明書の発行に少し時間がかかる。焦らず待つのが正解。</li>
+<li><strong>「自動化＝放置で儲かる」ではない</strong>：仕組みは作れても、読まれて収益になるのは別問題。ここは正直、これからの積み上げ次第です。</li>
+</ul>
+<h2>正直な現在地と、これから</h2>
+<p>ここまでで「<strong>器</strong>」は完成しました。でも器ができただけで、まだ1円も生んでいません。これは誇張なく事実です。</p>
+<p>ブログがお金を生むには、</p>
+<ul>
+<li>記事が検索エンジンに評価されてアクセスが集まる</li>
+<li>広告やアフィリエイトの仕組みを正しく載せる</li>
+</ul>
+<p>という段階を、これから時間をかけて積み上げる必要があります。詳しい収益化の考え方は <a href="./ai-fukugyo-jidouka-5.html" rel="nofollow noopener" target="_blank">AIで副業を自動化する現実的な方法</a> にまとめています。</p>
+<h2>まとめ</h2>
+<ul>
+<li>自動更新ブログは、<strong>サーバー代0円＋ドメイン代だけ</strong>で作れる</li>
+<li>構築はAIの助けでかなり時短できる</li>
+<li>ただし「作った＝稼げる」ではない。<strong>ここからの積み上げが本番</strong></li>
+</ul>
+<p>このサイトは、その積み上げをリアルタイムで記録していく実験場でもあります。続きは、また別の記事で正直に報告します。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">こちらの記事</a>にまとめました。</p><p><small>※ここは将来、自社の電子書籍・講座などへの導線（最重要の収益口）に差し替える枠です。</small></p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+
+</body>
+</html>

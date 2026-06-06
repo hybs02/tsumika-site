@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方</title>
+<meta name="description" content="無料のGitHub Pagesに独自ドメインを繋ぐ作業で、自分が実際に止まった3つの場所と解決方法を、設定値レベルで具体的に残します。">
+<link rel="canonical" href="https://tsumika.net/domain-github-pages-tsumazuki.html">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方">
+<meta property="og:description" content="無料のGitHub Pagesに独自ドメインを繋ぐ作業で、自分が実際に止まった3つの場所と解決方法を、設定値レベルで具体的に残します。">
+<meta property="og:url" content="https://tsumika.net/domain-github-pages-tsumazuki.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方", "description": "無料のGitHub Pagesに独自ドメインを繋ぐ作業で、自分が実際に止まった3つの場所と解決方法を、設定値レベルで具体的に残します。", "url": "https://tsumika.net/domain-github-pages-tsumazuki.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-06-03"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude Code・AIツールで放置収益を作る実体験メディア</p>
+</header>
+<main>
+<time>2026-06-03</time>
+<h1>独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><span class="tag">独自ドメイン</span><span class="tag">GitHub Pages</span><span class="tag">DNS</span><span class="tag">HTTPS</span><span class="tag">実体験</span></div>
+
+<p>無料のGitHub Pagesに独自ドメインを当てる——記事や解説では「DNSを設定するだけ」とサラッと書かれがちです。でも実際にやると、地味に手が止まる場所がいくつかありました。このサイト（tsumika.net）を繋いだときに<strong>自分が詰まった3点</strong>を、設定値ごと残しておきます。同じことをやる人の時短になればと思います。</p>
+<h2>つまずき1：ドメインを買っても、何も起きない</h2>
+<div class="ad"><!-- 広告枠（AdSense等）。承認後にここへ貼る --></div>
+<p>最初の勘違いがこれでした。ドメインを取得した直後、ブラウザにそのアドレスを打っても当然ながら何も出ません。</p>
+<p>ドメインは「住所の名前」を借りただけで、<strong>中身を配信する場所（サーバー）とは別物</strong>です。GitHub Pagesという配信先に「この名前で来たらここを見せて」と指さしてやって、初めて表示される。ここを理解していないと、「買ったのに表示されない、壊れた？」と無駄に焦ります。焦らなくていい、設定がまだ無いだけです。</p>
+<h2>つまずき2：Aレコードの「Proxy」をオフにし忘れる</h2>
+<p>ドメイン側のDNSに、GitHub Pages宛のレコードを4つ登録します。具体的にはこのIPアドレス。</p>
+<pre><code>
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+</code></pre>
+<p>問題はここから。Cloudflareでドメインを取った場合、各レコードに「Proxy（プロキシ）」のオン/オフがあります。<strong>初期状態のオン（オレンジの雲）のままだと、GitHub PagesのHTTPS発行とぶつかって、うまく繋がらない</strong>ことがあります。</p>
+<p>直し方はシンプルで、オレンジの雲をクリックして<strong>灰色の雲（DNS only）に切り替える</strong>だけ。これに気づかず「DNSは合ってるのに繋がらない」とハマる人は多いはず。まず灰色、が安全です。</p>
+<h2>つまずき3：HTTPSのチェックが「押せない」</h2>
+<p>DNSが通り、サイトが <code>http://</code> で見えるようになっても、肝心の「Enforce HTTPS（常時HTTPS化）」のチェックボックスが<strong>グレーで押せない</strong>。</p>
+<p>これは故障ではありません。GitHubがそのドメイン用の証明書を<strong>裏で発行している最中</strong>なだけ。発行が終わると自動でチェックできるようになります。体感では数分〜十数分。ここは「待つのが正解」で、何度も設定を触ると逆に時間がかかることもあります。手を止めて放置するのが一番早い、という珍しい工程です。</p>
+<h2>やってみて思ったこと</h2>
+<p>3つとも、知っていれば1分の話。知らないと30分悩む。技術的に難しいというより、<strong>「今どの段階で、何を待っているのか」が見えないと不安になる</strong>タイプの作業でした。</p>
+<p>逆に言えば、一度通してしまえば仕組みは単純です。サーバー代0円のまま、自分の名前のサイトが持てる。年1,800円ほどのドメイン代だけでここまで来られるのは、個人にとって悪くない投資だと思います。</p>
+<p>このサイト全体をどう組んだかは <a href="./ai-blog-build-log.html" rel="nofollow noopener" target="_blank">AIで自動更新ブログを作った全記録</a> に書いたので、合わせてどうぞ。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">こちらの記事</a>にまとめました。</p><p><small>※ここは将来、自社の電子書籍・講座などへの導線（最重要の収益口）に差し替える枠です。</small></p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+
+</body>
+</html>
