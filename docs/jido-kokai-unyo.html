@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブログの自動公開を仕組み化して、実際に運用してみた記録</title>
+<meta name="description" content="記事を書き溜めて自動で1本ずつ公開する仕組みを作り、実際に回してみて分かったこと。便利だった点と、これは人間がやるべきだと感じた点を正直に。">
+<link rel="canonical" href="https://tsumika.net/jido-kokai-unyo.html">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ブログの自動公開を仕組み化して、実際に運用してみた記録">
+<meta property="og:description" content="記事を書き溜めて自動で1本ずつ公開する仕組みを作り、実際に回してみて分かったこと。便利だった点と、これは人間がやるべきだと感じた点を正直に。">
+<meta property="og:url" content="https://tsumika.net/jido-kokai-unyo.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ブログの自動公開を仕組み化して、実際に運用してみた記録", "description": "記事を書き溜めて自動で1本ずつ公開する仕組みを作り、実際に回してみて分かったこと。便利だった点と、これは人間がやるべきだと感じた点を正直に。", "url": "https://tsumika.net/jido-kokai-unyo.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-14", "dateModified": "2026-06-14"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude Code・AIツールで放置収益を作る実体験メディア</p>
+</header>
+<main>
+<time>2026-06-14</time>
+<h1>ブログの自動公開を仕組み化して、実際に運用してみた記録</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><span class="tag">ブログ運営</span><span class="tag">自動化</span><span class="tag">実体験</span><span class="tag">仕組み化</span></div>
+
+<p>「ブログを自動更新する」と聞くと、全部を機械任せにする姿を想像するかもしれません。実際にこのサイトで自動公開の仕組みを組んで回してみると、<strong>任せていい部分と、任せてはいけない部分がくっきり分かれる</strong>と感じました。その記録を残します。</p>
+<h2>作った仕組み</h2>
+<div class="ad"><!-- 広告枠（AdSense等）。承認後にここへ貼る --></div>
+<p>やったことはシンプルです。</p>
+<ul>
+<li>記事は前もって何本か書き溜めておく</li>
+<li>そこから1本ずつ、決まった曜日に自動で公開する</li>
+</ul>
+<p>これだけ。WordPressのような重い仕組みは使わず、テキストファイルを置いて公開するだけの軽い構成にしました。全体像は <a href="./ai-blog-build-log.html" rel="nofollow noopener" target="_blank">自動更新ブログを作った全記録</a> に書いています。</p>
+<h2>任せてよかった部分</h2>
+<h3>公開のタイミング</h3>
+<p>「いつ出すか」を毎回考えるのは地味に面倒です。曜日を決めて自動化したら、その手間がまるごと消えました。書き溜めさえあれば、自分が何もしなくても更新が続く。この安心感は思った以上に大きい。</p>
+<h3>機械的な処理</h3>
+<p>サイトの再生成、リンクの更新、公開作業。こういう「やれば終わるが間違えやすい」工程は、自動化したほうが速いし正確です。</p>
+<h2>任せてはいけないと感じた部分</h2>
+<h3>中身の質</h3>
+<p>ここが核心でした。公開を自動化すると、つい「書くこと自体も全部自動でいいのでは」と思いたくなる。でも、<strong>中身の良し悪しのチェックを飛ばすと、薄い記事が自動で世に出続ける</strong>ことになります。これは検索エンジンにも読者にも嫌われる、最悪の自動化です。</p>
+<p>なので、あえて<strong>「最終チェックを通った記事しか公開できない」関門</strong>を仕組みに入れました。チェック前の記事は、自動公開のラインに乗らない。自動化しても、品質の最終判断だけは人の手（あるいは明確な基準）に残す——この線引きが、たぶん一番大事です。</p>
+<h2>回してみて思ったこと</h2>
+<p>自動化は「楽をするため」より「<strong>続けるため</strong>」の道具だと感じました。人間は飽きるし、忙しいと更新が止まる。仕組みが代わりに淡々と出してくれると、止まらない。</p>
+<p>ただし、淡々と出せるからこそ、<strong>何を出すか</strong>の基準は厳しく持っておかないと、楽に薄いものを量産してしまう。便利さと引き換えに、質を守る意志が要る。そこだけは自動化できませんでした。</p>
+<h2>まとめ</h2>
+<ul>
+<li>公開のタイミングと機械的処理は、自動化して正解</li>
+<li>中身の質チェックは、自動化してはいけない最後の砦</li>
+<li>自動化は「楽」より「継続」のための道具</li>
+</ul>
+<p>この仕組みが実際にどう成果に繋がるかは、これから記録していきます。収益化をどう考えているかは <a href="./ai-fukugyo-jidouka-5.html" rel="nofollow noopener" target="_blank">あえて収益化を急がなかった話</a> にも通じる話です。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">こちらの記事</a>にまとめました。</p><p><small>※ここは将来、自社の電子書籍・講座などへの導線（最重要の収益口）に差し替える枠です。</small></p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
