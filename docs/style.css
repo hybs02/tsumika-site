@@ -12,6 +12,15 @@ pre{background:#1a1a1a;color:#eee;padding:14px;border-radius:8px;overflow:auto}c
 .site-foot{text-align:center;color:#999;padding:30px;font-size:.85rem}
 .foot-nav{margin-bottom:10px}.foot-nav a{color:#777;text-decoration:none;font-size:.85rem}
 .byline{color:#888;font-size:.85rem;margin:.2em 0 1em}.byline a{color:#666}
+.table-wrap{overflow-x:auto;margin:1.5em 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+th{background:#f2f2f2;font-weight:700}
+tbody tr:nth-child(even){background:#fafafa}
+blockquote{margin:1.5em 0;padding:.6em 1em;border-left:4px solid #ccc;background:#f7f7f7;color:#555}
+blockquote p{margin:.4em 0}
+img{max-width:100%;height:auto}
+ol{padding-left:1.4em}ol li{margin:.3em 0}
 .cta{margin:2.5em 0 1em;padding:18px 20px;background:#fff;border:1px solid #e3e3e3;border-radius:10px}
 .cta h3{margin-top:0;border:none;padding:0;font-size:1.05rem}
 .newsletter{margin:2em 0;padding:22px 20px;background:#111;color:#fff;border-radius:12px}

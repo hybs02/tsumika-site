@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tsumika.net/index.html</loc></url>
-  <url><loc>https://tsumika.net/ai-kiji-usukushinai.html</loc></url>
-  <url><loc>https://tsumika.net/blog-hiyou-zenbu-kokai.html</loc></url>
-  <url><loc>https://tsumika.net/jido-kokai-unyo.html</loc></url>
-  <url><loc>https://tsumika.net/why-not-rush-monetize.html</loc></url>
-  <url><loc>https://tsumika.net/claude-code-honest-review.html</loc></url>
-  <url><loc>https://tsumika.net/ai-blog-build-log.html</loc></url>
-  <url><loc>https://tsumika.net/domain-github-pages-tsumazuki.html</loc></url>
-  <url><loc>https://tsumika.net/ai-fukugyo-jidouka-5.html</loc></url>
-  <url><loc>https://tsumika.net/claude-code-towa.html</loc></url>
-  <url><loc>https://tsumika.net/kdp-ai-automation.html</loc></url>
+  <url><loc>https://tsumika.net/</loc><lastmod>2026-07-25</lastmod></url>
+  <url><loc>https://tsumika.net/ai-kiji-usukushinai.html</loc><lastmod>2026-07-25</lastmod></url>
+  <url><loc>https://tsumika.net/blog-hiyou-zenbu-kokai.html</loc><lastmod>2026-07-25</lastmod></url>
+  <url><loc>https://tsumika.net/jido-kokai-unyo.html</loc><lastmod>2026-06-14</lastmod></url>
+  <url><loc>https://tsumika.net/why-not-rush-monetize.html</loc><lastmod>2026-06-14</lastmod></url>
+  <url><loc>https://tsumika.net/claude-code-honest-review.html</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tsumika.net/ai-blog-build-log.html</loc><lastmod>2026-06-03</lastmod></url>
+  <url><loc>https://tsumika.net/domain-github-pages-tsumazuki.html</loc><lastmod>2026-06-03</lastmod></url>
+  <url><loc>https://tsumika.net/ai-fukugyo-jidouka-5.html</loc><lastmod>2026-06-02</lastmod></url>
+  <url><loc>https://tsumika.net/claude-code-towa.html</loc><lastmod>2026-06-02</lastmod></url>
+  <url><loc>https://tsumika.net/kdp-ai-automation.html</loc><lastmod>2026-06-02</lastmod></url>
+  <url><loc>https://tsumika.net/about.html</loc></url>
+  <url><loc>https://tsumika.net/privacy.html</loc></url>
 </urlset>
