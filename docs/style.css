@@ -4,7 +4,8 @@
 h1{font-size:1.7rem;line-height:1.4}h2{margin-top:2em;border-left:5px solid #111;padding-left:.6em}
 a{color:#0b66c3}time{color:#888;font-size:.85rem}.tags{margin:.5em 0 1.5em}
 .tag{display:inline-block;background:#eee;border-radius:12px;padding:3px 11px;margin:0 6px 6px 0;font-size:.8rem;color:#555;text-decoration:none}
-.tag:hover{background:#111;color:#fff}
+a.tag:hover{background:#111;color:#fff}
+span.tag{background:transparent;color:#999;border:1px solid #e5e5e5}
 .tags-index .tag{font-size:.9rem;padding:6px 14px}
 .tag-count{margin-left:6px;opacity:.6;font-size:.75em}
 .disclosure{font-size:.8rem;color:#999;background:#f4f4f4;padding:8px 12px;border-radius:6px}
