@@ -3,6 +3,7 @@
 <title>AI自動化で稼ぐラボ</title>
 <link>https://tsumika.net/</link>
 <description>Claude CodeでブログとAI自動化を実際に運用している記録</description>
+<item><title>自動更新にしたブログが、1ヶ月まるごと止まっていた話</title><link>https://tsumika.net/jidoka-tomatteita.html</link><guid isPermaLink="true">https://tsumika.net/jidoka-tomatteita.html</guid><pubDate>Mon, 27 Jul 2026 00:00:00 +0900</pubDate><description>「あとは放置で回る」と思っていた自動公開の仕組みが、1ヶ月以上まったく動いていませんでした。原因と、そこから学んだ自動化の落とし穴を正直に書きます。</description></item>
 <item><title>AIに記事を書かせるなら、これだけは守る「薄くしない」ための工夫</title><link>https://tsumika.net/ai-kiji-usukushinai.html</link><guid isPermaLink="true">https://tsumika.net/ai-kiji-usukushinai.html</guid><pubDate>Sat, 25 Jul 2026 00:00:00 +0900</pubDate><description>AIで記事を書くと、放っておけば&quot;いかにもAI&quot;な薄い文章になる。実際に運用しながら決めた、薄くしない・AIっぽさを消すための具体ルールを共有します。</description></item>
 <item><title>個人ブログの運営費を全部公開する（結局いくらかかるのか）</title><link>https://tsumika.net/blog-hiyou-zenbu-kokai.html</link><guid isPermaLink="true">https://tsumika.net/blog-hiyou-zenbu-kokai.html</guid><pubDate>Sat, 25 Jul 2026 00:00:00 +0900</pubDate><description>「ブログは無料で始められる」は本当か。このサイトを実際に立ち上げて運営するのに、何にいくらかかっているかを、隠さず全部公開します。</description></item>
 <item><title>ブログの自動公開を仕組み化して、実際に運用してみた記録</title><link>https://tsumika.net/jido-kokai-unyo.html</link><guid isPermaLink="true">https://tsumika.net/jido-kokai-unyo.html</guid><pubDate>Sun, 14 Jun 2026 00:00:00 +0900</pubDate><description>記事を書き溜めて自動で1本ずつ公開する仕組みを作り、実際に回してみて分かったこと。便利だった点と、これは人間がやるべきだと感じた点を正直に。</description></item>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自動更新にしたブログが、1ヶ月まるごと止まっていた話</title>
+<meta name="description" content="「あとは放置で回る」と思っていた自動公開の仕組みが、1ヶ月以上まったく動いていませんでした。原因と、そこから学んだ自動化の落とし穴を正直に書きます。">
+<link rel="canonical" href="https://tsumika.net/jidoka-tomatteita.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自動更新にしたブログが、1ヶ月まるごと止まっていた話">
+<meta property="og:description" content="「あとは放置で回る」と思っていた自動公開の仕組みが、1ヶ月以上まったく動いていませんでした。原因と、そこから学んだ自動化の落とし穴を正直に書きます。">
+<meta property="og:url" content="https://tsumika.net/jidoka-tomatteita.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "自動更新にしたブログが、1ヶ月まるごと止まっていた話", "description": "「あとは放置で回る」と思っていた自動公開の仕組みが、1ヶ月以上まったく動いていませんでした。原因と、そこから学んだ自動化の落とし穴を正直に書きます。", "url": "https://tsumika.net/jidoka-tomatteita.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-27", "dateModified": "2026-07-27"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-07-27</time>
+<h1>自動更新にしたブログが、1ヶ月まるごと止まっていた話</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><a class="tag" href="./tag-自動化.html">自動化</a><span class="tag">失敗談</span><span class="tag">運用</span><a class="tag" href="./tag-実体験.html">実体験</a></div>
+
+<p>自動でブログが更新される仕組みを作って、満足していました。あとは記事を書き溜めておけば、決まった曜日に勝手に公開される。手を離しても回る——そう思っていたんです。</p>
+<p>ところが先日ふと確認したら、<strong>最終公開日が1ヶ月以上前で止まっていました</strong>。在庫の記事は残っているのに、一本も出ていない。自動化したつもりが、静かに死んでいた。</p>
+<h2>何が起きていたか</h2>
+<p>原因は、拍子抜けするほど地味なものでした。</p>
+<p>自動実行のために置いていた小さな起動ファイル（バッチファイル）の<strong>改行コードが、Windowsの想定と違っていた</strong>んです。その結果、ファイル内の設定行が正しく読まれず、実行しようとしたコマンドが空っぽになっていました。</p>
+<p>ログにはこう残っていました。</p>
+<pre><code>
+&#x27;&quot;&quot;&#x27; は、内部コマンドまたは外部コマンド、
+操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+</code></pre>
+<p><code>&quot;&quot;</code> ——空文字を実行しようとして失敗している。設定を読み込む行が、その手前の行とくっついてしまい、まるごと無視されていたわけです。</p>
+<p>さらに悪いことに、<strong>定期実行の登録そのものも消えていました</strong>。仮にファイルが正しくても、そもそも呼び出されない状態だった。二重に止まっていたことになります。</p>
+<h2>一番の問題は「気づけなかった」こと</h2>
+<p>技術的な原因は5分で直りました。修正して実行したら、あっさり記事が公開された。</p>
+<p>でも本当に痛かったのはそこじゃない。<strong>1ヶ月も気づかなかったこと</strong>です。</p>
+<p>自動化には、静かに壊れるという性質があります。手作業なら「今日はやっていないな」と自分で分かる。でも自動化は、動いているつもりで止まっていても、何も言ってくれません。エラーはログファイルの中で誰にも読まれないまま溜まっていく。</p>
+<p>しかも厄介なのは、<strong>自動化した直後ほど確認しない</strong>ことです。作った直後は動作確認するけれど、うまくいくと安心して見なくなる。その油断の期間に静かに壊れる。</p>
+<h2>学んだこと</h2>
+<h3>「動いた」と「動き続ける」は別物</h3>
+<p>一度動いたから完成、ではありませんでした。自動化で本当に必要なのは、動き始めた後に<strong>止まったことに気づける仕組み</strong>のほうです。</p>
+<p>今回の場合、パネルを開けば最終公開日が見えるようになっていました。それでも1ヶ月見なかった。見える化されていても、見なければ意味がない。</p>
+<h3>環境の細かい違いが牙をむく</h3>
+<p>改行コードなんて、普段は気にも留めません。でもWindowsのバッチファイルという文脈では、それが致命傷になった。「たぶん動くだろう」で置いたものは、たいてい後で刺さります。</p>
+<h3>失敗をどう扱うか</h3>
+<p>正直、これを書くかどうかは少し迷いました。自動化の記事を書いている本人が自動化に失敗している、というのは格好悪い。</p>
+<p>でも、うまくいった話しか出てこない情報のほうが、読む側としては役に立たないと思っています。同じ穴に落ちる人が一人でも減るなら、恥ずかしい話も残しておく価値がある。</p>
+<h2>これからどうするか</h2>
+<p>対処としては、壊れていたファイルを正しい形式で作り直し、定期実行を登録し直しました。動作も確認済みです。</p>
+<p>ただ、また同じことが起きない保証はありません。だから当面は「<strong>月に一度、最終公開日を見る</strong>」だけは自分のルールにしました。仕組みで解決できるならそれがベストですが、まずは確認する習慣のほうが確実です。</p>
+<p>自動化は魔法ではなく、放っておけば劣化する機械に近い。そう思っておくくらいが、ちょうどいいのかもしれません。</p>
+<p>このブログ自体をどう作ったかは <a href="./ai-blog-build-log.html">自動更新ブログを作った全記録</a> に、仕組み化して運用した話は <a href="./jido-kokai-unyo.html">ブログの自動公開を仕組み化して運用してみた記録</a> に書いています。今読み返すと、当時の自分はずいぶん楽観的でした。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
