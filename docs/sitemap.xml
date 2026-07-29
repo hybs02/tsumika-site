@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tsumika.net/</loc><lastmod>2026-07-27</lastmod></url>
+  <url><loc>https://tsumika.net/</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://tsumika.net/access-kaiseki-zero.html</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://tsumika.net/jidoka-tomatteita.html</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://tsumika.net/ai-kiji-usukushinai.html</loc><lastmod>2026-07-25</lastmod></url>
   <url><loc>https://tsumika.net/blog-hiyou-zenbu-kokai.html</loc><lastmod>2026-07-25</lastmod></url>
@@ -16,9 +17,9 @@
   <url><loc>https://tsumika.net/privacy.html</loc></url>
   <url><loc>https://tsumika.net/report.html</loc></url>
   <url><loc>https://tsumika.net/tags.html</loc></url>
-  <url><loc>https://tsumika.net/tag-自動化.html</loc></url>
   <url><loc>https://tsumika.net/tag-実体験.html</loc></url>
   <url><loc>https://tsumika.net/tag-ブログ運営.html</loc></url>
+  <url><loc>https://tsumika.net/tag-自動化.html</loc></url>
   <url><loc>https://tsumika.net/tag-claude-code.html</loc></url>
   <url><loc>https://tsumika.net/tag-github-pages.html</loc></url>
   <url><loc>https://tsumika.net/tag-ai.html</loc></url>

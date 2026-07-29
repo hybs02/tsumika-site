@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アクセス解析がずっと0だった。原因は広告ブロックでした</title>
+<meta name="description" content="自分でサイトを開いているのに解析画面のアクセス数が0のまま。原因を追ったら、よくある計測方法そのものの弱点にぶつかりました。対処までの記録です。">
+<link rel="canonical" href="https://tsumika.net/access-kaiseki-zero.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="アクセス解析がずっと0だった。原因は広告ブロックでした">
+<meta property="og:description" content="自分でサイトを開いているのに解析画面のアクセス数が0のまま。原因を追ったら、よくある計測方法そのものの弱点にぶつかりました。対処までの記録です。">
+<meta property="og:url" content="https://tsumika.net/access-kaiseki-zero.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "アクセス解析がずっと0だった。原因は広告ブロックでした", "description": "自分でサイトを開いているのに解析画面のアクセス数が0のまま。原因を追ったら、よくある計測方法そのものの弱点にぶつかりました。対処までの記録です。", "url": "https://tsumika.net/access-kaiseki-zero.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-30", "dateModified": "2026-07-30"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-07-30</time>
+<h1>アクセス解析がずっと0だった。原因は広告ブロックでした</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><span class="tag">アクセス解析</span><span class="tag">Cloudflare</span><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a></div>
+
+<p>自分のブログにアクセス解析を入れました。設置も済んだ。試しに自分でサイトを開いてみる。解析画面を見る——<strong>0</strong>。</p>
+<p>何度開いても0のまま。設定を間違えたのかと思って見直しても、タグはちゃんと入っている。ここから原因究明が始まりました。結論だけ先に言うと、<strong>悪いのは解析ツールでも設定でもなく、計測のやり方そのもの</strong>でした。</p>
+<h2>最初に疑ったこと（そして全部ハズレ）</h2>
+<p>順番に潰していきました。</p>
+<ul>
+<li>タグの設置ミス → ページのソースを見たら、ちゃんと入っている</li>
+<li>ドメインの設定ミス → 合っている</li>
+<li>反映の遅れ → 数十分待っても0</li>
+</ul>
+<p>ここで手詰まりになり、ブラウザがサーバーと何を通信しているかを直接見ることにしました。すると、計測用のスクリプトの読み込みが<strong>エラーで失敗している</strong>のが分かりました。</p>
+<h2>犯人は広告ブロック</h2>
+<p>原因はシンプルでした。<strong>ブラウザの広告ブロック機能が、計測スクリプトを遮断していた</strong>んです。</p>
+<p>よくあるアクセス解析は、ページに小さなプログラムを埋め込んで、訪問者のブラウザから「見にきました」と報告させる仕組みです。この報告を送るのはブラウザ側。つまり、<strong>ブラウザが送るのを拒否したら、それで終わり</strong>。サーバー側は何も知りません。</p>
+<p>そして広告ブロッカーやプライバシー保護機能は、まさにこの手の報告を止めるためにあります。悪意はなく、仕様通りの動作です。</p>
+<p>厄介なのは、<strong>この取りこぼしが自分では見えない</strong>こと。「アクセスが少ないな」と思っている数字が、実はブロックされた分を丸ごと欠いているかもしれない。特にIT系やAI系の話題は、そういう機能を使っている読者の割合が高いと言われます。自分のサイトは、まさにその領域でした。</p>
+<h2>解決策：ブラウザに頼らず数える</h2>
+<p>考え方を変えました。ブラウザに報告させるのをやめて、<strong>サイトに届く手前の通り道で数える</strong>方式にしたんです。</p>
+<p>具体的には、サイトへのアクセスをいったん中継サービス（自分が使っているドメイン管理サービス）経由にして、そこを通った回数をそのまま記録してもらう形にしました。訪問者のブラウザが何をブロックしようと、<strong>そもそもサイトを見るには必ずそこを通る</strong>ので、数を取りこぼしません。</p>
+<p>切り替え後に確認したら、ちゃんとアクセスが記録されていました。設置してから今日までの分が、正しく積み上がっている。</p>
+<h2>切り替えでハマった点</h2>
+<p>ひとつだけ注意が要りました。中継を有効にする前に、<strong>暗号化通信（HTTPS）の設定を先に正しくしておく</strong>必要があったことです。</p>
+<p>ここを間違えると、サイトが延々と転送を繰り返して表示できなくなる、という事故が起きます。順番を守れば何も起きません。逆に言えば、順番を間違えると一時的にサイトが落ちます。私は先に設定を確認してから切り替えたので、無事でした。</p>
+<h2>学んだこと</h2>
+<p><strong>計測は「入れたら終わり」ではなく、「本当に数えているか」を確かめて初めて終わり</strong>です。0という数字を見たとき、私は最初「まだ誰も来ていないんだな」と解釈しかけました。実際は「来ているのに数えられていない」だった。この二つは天と地ほど違います。</p>
+<p>数字が出ない時に「人が来ていない」と結論づける前に、<strong>計測そのものを疑う</strong>。これは今後もずっと使える教訓になりました。</p>
+<p>もうひとつ。今回のようなブラウザ側の計測は手軽ですが、限界があります。手軽さと正確さは別物で、どちらが要るかは目的次第。私の場合は、少ないアクセスを正確に把握したかったので、正確さを取りました。</p>
+<h2>まとめ</h2>
+<ul>
+<li>アクセス解析が0でも、来ていないとは限らない</li>
+<li>よくある解析方法は、広告ブロックで普通に取りこぼす</li>
+<li>通り道で数える方式にすれば、ブロックの影響を受けない</li>
+<li>切り替え時は暗号化設定の順番に注意</li>
+</ul>
+<p>サイト全体をどう構築したかは <a href="./ai-blog-build-log.html">自動更新ブログを作った全記録</a> に書いています。運用でつまずいた話は <a href="./jidoka-tomatteita.html">1ヶ月止まっていた件</a> のほうが生々しいかもしれません。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
