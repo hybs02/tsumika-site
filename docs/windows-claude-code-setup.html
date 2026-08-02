@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WindowsでClaude Codeを使うと踏む、3つの地雷とその回避法</title>
+<meta name="description" content="WindowsでClaude Codeを使って実際にぶつかった3つの問題——日本語の文字化け、バッチファイルの改行コード、Pythonの取り違え——と、その直し方を具体的に書きます。">
+<link rel="canonical" href="https://tsumika.net/windows-claude-code-setup.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WindowsでClaude Codeを使うと踏む、3つの地雷とその回避法">
+<meta property="og:description" content="WindowsでClaude Codeを使って実際にぶつかった3つの問題——日本語の文字化け、バッチファイルの改行コード、Pythonの取り違え——と、その直し方を具体的に書きます。">
+<meta property="og:url" content="https://tsumika.net/windows-claude-code-setup.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "WindowsでClaude Codeを使うと踏む、3つの地雷とその回避法", "description": "WindowsでClaude Codeを使って実際にぶつかった3つの問題——日本語の文字化け、バッチファイルの改行コード、Pythonの取り違え——と、その直し方を具体的に書きます。", "url": "https://tsumika.net/windows-claude-code-setup.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-08-03", "dateModified": "2026-08-03"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-08-03</time>
+<h1>WindowsでClaude Codeを使うと踏む、3つの地雷とその回避法</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><a class="tag" href="./tag-claude-code.html">Claude Code</a><span class="tag">Windows</span><a class="tag" href="./tag-実体験.html">実体験</a><span class="tag">文字化け</span></div>
+
+<p>Claude Codeの解説は、なぜかMacを前提にしたものばかりです。私はWindowsで使っていて、Mac記事には出てこない問題に何度もぶつかりました。</p>
+<p>どれも「知っていれば1分、知らないと30分」の類です。実際に踏んだ3つを、直し方つきで書き残します。</p>
+<h2>地雷1：日本語が化ける（cp932の壁）</h2>
+<p>最初にぶつかったのがこれです。自分で書いた小さなツールを動かしたら、日本語の出力がこうなりました。</p>
+<pre><code>
+=== �����f�W�^�����i�J�e�S��� ===
+</code></pre>
+<p>原因は、<strong>Windowsのコンソールが標準では日本語を「cp932」という古い文字コードで扱う</strong>のに対し、プログラム側はUTF-8で出力していたことです。噛み合っていないので、そのまま文字化けする。</p>
+<p>対処は、プログラムの先頭で出力をUTF-8に固定することでした。</p>
+<pre><code>
+import sys
+try:
+    sys.stdout.reconfigure(encoding=&quot;utf-8&quot;)
+except Exception:
+    pass
+</code></pre>
+<p>この数行を入れるだけで、化けは止まりました。</p>
+<p>厄介なのは、<strong>この問題がWindowsでしか起きない</strong>ことです。Macの解説記事を読んでも一切出てこない。だから「自分の書き方が悪いのか」と見当違いの場所を疑って時間を溶かします。</p>
+<h2>地雷2：バッチファイルの改行コード</h2>
+<p>もっと厄介だったのがこれです。定期実行のために小さな起動用ファイル（<code>.cmd</code>）を作ったら、動いたり動かなかったりする。</p>
+<p>原因は<strong>改行コード</strong>でした。文字が見えないので、開いても異常に気づけません。</p>
+<p>Windowsのバッチファイルは、行の終わりが「CR+LF」であることを前提にしています。ところがツールによっては「LF」だけで保存されることがある。するとWindowsは行の切れ目を認識できず、<strong>次の行と繋がったものとして読んでしまう</strong>。</p>
+<p>結果、こんなエラーが出ます。</p>
+<pre><code>
+&#x27;&quot;&quot;&#x27; は、内部コマンドまたは外部コマンド、
+操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+</code></pre>
+<p><code>&quot;&quot;</code> ——空っぽを実行しようとしている。設定を読み込む行が前の行とくっついて、丸ごと無視されていたわけです。</p>
+<p>これに気づかず、私は<strong>1ヶ月間、自動化が止まっていることに気づきませんでした</strong>。その話は <a href="./jidoka-tomatteita.html">1ヶ月まるごと止まっていた件</a> に書いています。</p>
+<p>対処は単純で、<strong>バッチファイルはCR+LFで保存する</strong>こと。それだけです。日本語のコメントも化ける原因になるので、<code>.cmd</code>の中身は英数字だけにしておくと安全でした。</p>
+<h2>地雷3：Pythonが複数あって別物を掴む</h2>
+<p>Windowsには、いつの間にか複数のPythonが入っていることがあります。ストア版、公式インストーラー版、そして「見せかけだけの実行ファイル」。</p>
+<p>私の環境では、<code>python</code> と打つと <code>WindowsApps</code> の下にあるものが反応しましたが、実際に動いていたのは別の場所にある本体でした。手で動かす分には問題なくても、<strong>定期実行のように環境が変わる場面では、違う方を掴んで失敗します</strong>。</p>
+<p>対処は、どれが本体かを確認して、自動化ではフルパスで指定することです。</p>
+<pre><code>
+python -c &quot;import sys; print(sys.executable)&quot;
+</code></pre>
+<p>これで表示された道筋を、そのまま設定に書く。曖昧さがなくなります。</p>
+<h2>Windowsで使うのは損か</h2>
+<p>ここまで書くと不利に見えますが、慣れれば普通に使えます。地雷はどれも<strong>一度踏めば二度と踏まない</strong>種類のものでした。</p>
+<p>むしろ、日本のPC利用者の多くはWindowsです。Mac前提の情報しかない状況は、裏を返せば<strong>同じところで困っている人が大勢いる</strong>ということでもあります。私が時間を溶かした分は、この記事で回収してもらえればと思います。</p>
+<h2>まとめ</h2>
+<ul>
+<li>日本語が化けたら、出力をUTF-8に固定する</li>
+<li><code>.cmd</code> は必ずCR+LFで保存し、中身は英数字だけにする</li>
+<li>Pythonが複数あるので、自動化ではフルパスで指定する</li>
+</ul>
+<p>道具そのものの評価は <a href="./claude-code-honest-review.html">非エンジニアの正直レビュー</a> に、何ができるかは <a href="./claude-code-towa.html">Claude Codeとは？</a> に書きました。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
