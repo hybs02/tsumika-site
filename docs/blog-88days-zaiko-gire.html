@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自動更新ブログがまた止まった。今度は88日、原因は在庫切れ</title>
+<meta name="description" content="8月3日を最後に、このブログは新しい記事を出していませんでした。今回は何も壊れておらず、自動公開は「在庫がありません」と記録して正常に終わり続けていました。補充をClaude Codeのスキルにした話と、経緯を知らないAIに下書きを読ませたら間違いが次々に出た話です。">
+<link rel="canonical" href="https://tsumika.net/blog-88days-zaiko-gire.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自動更新ブログがまた止まった。今度は88日、原因は在庫切れ">
+<meta property="og:description" content="8月3日を最後に、このブログは新しい記事を出していませんでした。今回は何も壊れておらず、自動公開は「在庫がありません」と記録して正常に終わり続けていました。補充をClaude Codeのスキルにした話と、経緯を知らないAIに下書きを読ませたら間違いが次々に出た話です。">
+<meta property="og:url" content="https://tsumika.net/blog-88days-zaiko-gire.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "自動更新ブログがまた止まった。今度は88日、原因は在庫切れ", "description": "8月3日を最後に、このブログは新しい記事を出していませんでした。今回は何も壊れておらず、自動公開は「在庫がありません」と記録して正常に終わり続けていました。補充をClaude Codeのスキルにした話と、経緯を知らないAIに下書きを読ませたら間違いが次々に出た話です。", "url": "https://tsumika.net/blog-88days-zaiko-gire.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-11-02", "dateModified": "2026-11-02"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-11-02</time>
+<h1>自動更新ブログがまた止まった。今度は88日、原因は在庫切れ</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a><a class="tag" href="./tag-自動化.html">自動化</a><a class="tag" href="./tag-claude-code.html">Claude Code</a><a class="tag" href="./tag-失敗談.html">失敗談</a></div>
+
+<p>このブログの最後の記事は、8月3日に出たものです。この記事を書いている10月30日の時点で、88日間、新しい記事が1本も出ていませんでした。</p>
+<p>以前、<a href="./jidoka-tomatteita.html">自動更新が1ヶ月まるごと止まっていた話</a> を書きました。その記事は「見える化されていても、見なければ意味がない」で締めて、「月に一度、最終公開日を見る」を自分のルールにした、とも書いています。それでも、今回はその倍以上の期間が空きました。</p>
+<p>ただ、今回は前回と中身が違います。何も壊れていませんでした。</p>
+<h2>壊れていないのに止まっていた</h2>
+<p>このブログは、書き溜めた記事を「在庫」のフォルダに置いておくと、月曜と木曜の朝7時に1本ずつ自動で公開する作りです（作りの詳しい話は <a href="./jido-kokai-unyo.html">自動公開を仕組み化して運用した記録</a> に）。</p>
+<p>8月6日から10月29日までの月曜と木曜は、25回ありました。記録を見ると、23回は予定どおり朝7時に動き、9月12日の夜に1回、予定外に動いています。8月13日と9月10日は記録が無く、理由は分かっていません。そして動いた24回は、すべてこう書いて正常に終わっていました。</p>
+<pre><code>
+BACKLOG_EMPTY: scheduled/ に記事がありません。補充が必要です。
+</code></pre>
+<p>在庫が空なので、出すものが無い。前回は起動用のファイルが壊れて処理そのものが走っていませんでしたが、今回は走ったうえで「何もしない」をくり返していました。在庫切れはエラーではなく正常な終わり方として扱う作りにしていたので、エラーの記録も空のままです。</p>
+<p>在庫の補充は、もともと人がやる前提にしてあります。6月にこの仕組みを作った時、Claude Code のクラウドの定期実行がつながらず、PC 側で Claude Code を無人で呼ぶ設定もうまくいきませんでした。出来を見ながら書きたかったこともあって、在庫が減ったら Claude Code に「補充して」と頼む形にしました。管理用のパネルにも、在庫が2本以下になると「Claudeに『補充して』と伝えてください」と赤く出るようにしてあります。</p>
+<p>ただ、このパネルは開いた時にしか見えません。前回と同じ形で、知らせる仕組みはあっても、見に行かなければ届かない。止まっていたのは機械ではなく、補充する側でした。</p>
+<h2>補充を「スキル」にした</h2>
+<p>今回は在庫を足すだけでなく、補充のやり方そのものを Claude Code の「スキル」にしました。スキルは、手順書と道具をひとまとめにして、頼めばその手順で動いてもらう仕組みです。中身はこうです。</p>
+<div class="table-wrap"><table><thead><tr><th>手順</th><th>やること</th></tr></thead><tbody><tr><td>健康診断</td><td>最後の公開から何日か、在庫は何本か、本番のサイトが見られるかを最初に確かめる</td></tr><tr><td>題材</td><td>このPCで実際に作ったもの・踏んだ穴から候補を出し、私が選ぶ</td></tr><tr><td>取材</td><td>ファイルに無い数字やその時の事情は、AI が私に聞く</td></tr><tr><td>執筆</td><td>既存の記事の書き方に合わせて書く</td></tr><tr><td>機械の検査</td><td>字数・見出し・リンク切れ・誇大表現・決まり文句を数える</td></tr><tr><td>経緯を知らない AI に読ませる</td><td>書いた経緯を渡さずに、初めて読む人として批評させる</td></tr><tr><td>推敲と了承</td><td>直したうえで私が読み、了承したものだけ在庫に入れる</td></tr></tbody></table></div>
+<p>機械の検査の基準は、公開済みの13本で測ってから決めました。本文の字数は1,429〜2,685字で、真ん中は1,933字でした。もし目安の2,000字を下限にしていたら、13本のうち8本が落ちます。なので下限は1,400字にして、2,000字は目安にとどめました。</p>
+<p>健康診断を動かした最初の結果は、「在庫が0本」「最後の公開から88日」でした。</p>
+<h2>経緯を知らない AI に読ませたら、間違いが次々に出た</h2>
+<p>いちばん効いたのは、下書きを経緯を知らない AI に読ませる手順でした。中身は同じ Claude ですが、書いた時のやり取りを渡さずに別に立ち上げ、初めて読む人として批評させます（Claude Code ではサブエージェントと呼ばれる仕組みです）。渡すのは、下書きの場所と、狙う読者と、検索してくる時の言葉だけ。こちらの意図や「よく書けたと思う」といった自己評価は渡しません。渡すと、それに沿った答えが返ってきやすいからです。</p>
+<p>書いた本人の見直しと機械の検査では、間違いが素通りしていました。今回書いた下書きで、この読み手が実際に見つけた間違いです。</p>
+<div class="table-wrap"><table><thead><tr><th>記事</th><th>見つかった間違い</th></tr></thead><tbody><tr><td>GPU と音声認識</td><td>冒頭の「20分の素材に45分」と、本文の表の数字が噛み合っていなかった</td></tr><tr><td>勝手にロックされる話</td><td>Windows の設定値900を「0.9秒」と書いていた。単位は秒で、15分</td></tr><tr><td>動画の書き出しの比較</td><td>「コア12本ぶん使っている」と書いていた。数えていたのは16本ある論理プロセッサ（スレッド）で、この CPU のコアは10本</td></tr></tbody></table></div>
+<p>どれも、機械の検査は通っていました。字数や言い回しは数えられても、数字どうしの矛盾は数えられません。この記事の下書きも同じように読ませていて、「24回きちんと動いた」と書いていたのを、実際の記録と合わないと指摘されて直しています。</p>
+<p>もうひとつ、記事に載せるコードを実際にこのPCで動かす、を手順に入れました。これでも2つ見つかっています。GPU のエラーが出るのは、AI のメモでは「モデルを読み込んだ時」でしたが、実際には「最初に書き起こした時」でした。もう1つは <code>.vbs</code> の文字コードの穴で、メモには「エラーになる」とありましたが、実際はエラーも出さずに1行消えるだけでした。どちらも8月に AI と一緒に調べて残したメモで、今日まで正しいと思っていました。</p>
+<p><a href="./ai-kiji-usukushinai.html">AIに記事を書かせるなら「薄くしない」</a> で書いたルールに、もう1つ足すなら「測り直す」です。</p>
+<h2>在庫は3本。それでも、頼まなければまた切れる</h2>
+<p>この記事を含めて、在庫は3本になりました。月曜と木曜に1本ずつで、このあと、記事を出さなかった3か月にアクセスがむしろ増えていた話と、稼ぐための道具を作ったのに商品がまだ0個の話が順に出ます。</p>
+<p>上の表の GPU やロックの話は、下書きまで書いたうえで保留にしました。どれも Claude Code に作ってもらった道具で踏んだ本当の話ですが、ブログの運営にも稼ぐ仕組みにも関わらない、道具の不具合の話だったからです。このブログで書くのは、その2つに関わることだけにします。</p>
+<p>止まらない仕組みになったわけではありません。スキルは頼めば最初に在庫を確かめますが、頼まなければ何も確かめません。知らせが届かない、という前回からの穴はそのまま残っています。</p>
+<p>もう1つ、書いていて気づいたことがあります。アクセスや費用を出している <a href="./report.html">運営記録</a> のページも、7月25日の数字のまま止まっていました。こちらも、更新を頼む人がいなければ止まる作りです。この記事に合わせて、10月30日の数字に更新しました。記事を出していなかった8月から10月も閲覧数は月2,000を超えていて、そのほとんどは機械的なアクセスだと見ています。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
