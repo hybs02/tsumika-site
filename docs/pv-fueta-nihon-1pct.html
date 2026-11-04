@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>記事ゼロでPVが増えた。Cloudflareで中身を見たらボットだった</title>
+<meta name="description" content="記事を出さなかった9月と10月、CloudflareのPVは7月より2割多い月2,300弱でした。国別に分けると日本からは1%未満。ボットだらけのPVを稼ぐ判断に使えない理由と、自分のサイトで確かめる手順です。">
+<link rel="canonical" href="https://tsumika.net/pv-fueta-nihon-1pct.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="記事ゼロでPVが増えた。Cloudflareで中身を見たらボットだった">
+<meta property="og:description" content="記事を出さなかった9月と10月、CloudflareのPVは7月より2割多い月2,300弱でした。国別に分けると日本からは1%未満。ボットだらけのPVを稼ぐ判断に使えない理由と、自分のサイトで確かめる手順です。">
+<meta property="og:url" content="https://tsumika.net/pv-fueta-nihon-1pct.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "記事ゼロでPVが増えた。Cloudflareで中身を見たらボットだった", "description": "記事を出さなかった9月と10月、CloudflareのPVは7月より2割多い月2,300弱でした。国別に分けると日本からは1%未満。ボットだらけのPVを稼ぐ判断に使えない理由と、自分のサイトで確かめる手順です。", "url": "https://tsumika.net/pv-fueta-nihon-1pct.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-11-05", "dateModified": "2026-11-05"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-11-05</time>
+<h1>記事ゼロでPVが増えた。Cloudflareで中身を見たらボットだった</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a><a class="tag" href="./tag-アクセス解析.html">アクセス解析</a><a class="tag" href="./tag-収益化.html">収益化</a><a class="tag" href="./tag-cloudflare.html">Cloudflare</a></div>
+
+<p>このブログは8月3日を最後に、新しい記事を出していませんでした（止まっていた事情は <a href="./blog-88days-zaiko-gire.html">88日止まっていた話</a> に書きました）。それでも、Cloudflare で数えているアクセス数（PV）は減りませんでした。記事を4本出した7月が1,913、1本も出していない9月が2,287、10月が2,288です。</p>
+<p>国別に分けると、9月と10月は日本からのアクセスが1%未満でした（リクエスト単位）。日本語で書いているブログなので、PVの大半はボットだと見ています。</p>
+<p>収益は0円、メールの購読者は1人です。</p>
+<h2>記事の数とPVが逆に動いた</h2>
+<p>数字は Cloudflare の解析から、11月1日に月ごとに取り直したものです。</p>
+<div class="table-wrap"><table><thead><tr><th>月</th><th>公開した記事</th><th>PV</th><th>リクエスト</th><th>日本からの割合</th><th>国・地域の数</th></tr></thead><tbody><tr><td>6月</td><td>8本</td><td>1,361</td><td>7,969</td><td>1.4%</td><td>41</td></tr><tr><td>7月</td><td>4本</td><td>1,913</td><td>6,470</td><td>5.1%</td><td>53</td></tr><tr><td>8月</td><td>1本</td><td>2,360</td><td>12,209</td><td>2.9%</td><td>73</td></tr><tr><td>9月</td><td>0本</td><td>2,287</td><td>22,446</td><td>0.1%</td><td>73</td></tr><tr><td>10月</td><td>0本</td><td>2,288</td><td>17,915</td><td>0.5%</td><td>69</td></tr></tbody></table></div>
+<p>6月はサイトを始めた月です。止まる直前の7月と比べると、PVは2割ほど増えました。リクエスト（画像やスタイルの読み込み、存在しないページへの要求も含めた、サイトへの要求の総数）は、6月から9月で2.8倍です。何が増えたのかまでは分けていません。アクセス元の国と地域は41から73に広がりました。</p>
+<p>日本からの割合は、PVではなくリクエストで出しています。今回の問い合わせでは、国別はリクエスト数しか返ってこなかったためです。9月の日本からのリクエストは、22,446のうち32でした。</p>
+<p>管理用のパネルと運営記録では、7月のPVを1,407と記録していました。7月26日に月の途中で取った値が、そのまま月の値として残っていたものです。パネルが記録済みの月も毎回取り直すように Claude Code に直してもらい、今は1,913になっています。</p>
+<h2>ボットをどう見分けたか</h2>
+<p>Cloudflare は、アクセス元が名乗るブラウザの種類も数えています。10月のPVでは、検索エンジンの巡回（GoogleBot・BingBot・AppleBot）と名乗るものが76、Cloudflare がブラウザを判別できなかったものが583、コマンドから直接取りに来たもの（Curl）が14ありました。残りは Chrome や Safari を名乗っていますが、名乗りだけなら機械でも同じにできます。</p>
+<p>国別の数字と合わせて、人が読んだPVはごく一部だと見ています。何割かは分かりません。</p>
+<p>この数え方を選んだのは自分です。<a href="./access-kaiseki-zero.html">アクセス解析がずっと0だった話</a> で書いたとおり、最初に入れた解析は、ページに埋め込んだプログラムがブラウザから報告する方式で、広告ブロックに止められて0のままでした。そこで、サイトに届く手前の通り道で数える方式に切り替えました。こちらは取りこぼしませんが、人もボットも全部数えます。あの記事で「正確さを取った」と書いたのは、取りこぼしが無いという意味では合っていました。人の数という意味では外れていました。</p>
+<h2>自分のサイトで確かめる手順</h2>
+<p>Cloudflare を通しているサイトなら、同じことを確かめられます。</p>
+<ol>
+<li>Cloudflare の画面で、サイトの Analytics → Traffic を開き、国別の地図と上位の国を見る。無料プランでは国別はリクエスト単位です。</li>
+<li>月ごと・ブラウザ別まで見たいなら、Cloudflare の GraphQL API に問い合わせる。使ったのは <code>httpRequests1dGroups</code> で、取った項目は次のとおりです。API トークンにはゾーンの解析を読む権限が要ります。</li>
+</ol>
+<pre><code>
+sum { pageViews requests
+      browserMap { pageViews uaBrowserFamily }
+      countryMap { clientCountryName requests } }
+</code></pre>
+<ol>
+<li>日本語のサイトなのに日本の割合が数%しかなければ、PVを読者の数として扱わない。</li>
+</ol>
+<p>2つ目は、自分では書いていません。管理用のパネルが月のPVと訪問者数の合計を取ってくる仕組みは前から Claude Code に作ってもらっていたので、「同じ鍵で、月ごとに国とブラウザの内訳も取れないか」と頼みました。パネルと同じ問い合わせに国とブラウザの項目を足したものを書いて、6月から10月の分を取ってくれました。合計のPVが、パネルに記録してある6月と8月から10月の値と同じことも確かめています。</p>
+<h2>稼ぐ判断にPVは使えない</h2>
+<p>月2,300のPVを見ると、広告を貼れば少しは入るのではと考えたくなります。でも大半がボットなら、広告を見る人もいません。収益化の判断にこのPVを使うと、いない読者を当てにすることになります。</p>
+<p>いま手元にある、稼ぐことに関わる数字はこれだけです。</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>実数</th></tr></thead><tbody><tr><td>収益</td><td>0円（広告もアフィリエイトも貼っていない）</td></tr><tr><td>メールの購読者</td><td>1人</td></tr><tr><td>費用</td><td>独自ドメイン代 年1,800円（月150円）</td></tr></tbody></table></div>
+<p><a href="./why-not-rush-monetize.html">収益化を急がなかった話</a> では、見直しの合図を「検索から継続的に人が来ているか」に置き、半年経っても訪問がほぼゼロなら書くものを見直す、と書きました。6月に始めたので、半年は12月です。その時に使う数字はPVではなく、検索結果に何回出て何回押されたか（Google の Search Console の表示回数とクリック数）です。こちらはまだ毎月の記録に入れておらず、この記事でも出していません。</p>
+<h2>気づくべきだったこと</h2>
+<p>合計のPVは毎月パネルで見ていました。記事を足さなくても、検索に載っていけばPVが伸びることはあります。だから増えたこと自体はおかしくありません。おかしかったのは中身で、日本語のブログに日本から32リクエストしか来ない月がありました。それに気づけたのは、内訳を分けてからでした。</p>
+<p>パネルには、まだ日本からの割合も、検索の表示回数も出していません。費用の内訳は <a href="./blog-hiyou-zenbu-kokai.html">運営費を全部公開した記事</a> にまとめています。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>

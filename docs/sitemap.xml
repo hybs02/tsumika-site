@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tsumika.net/</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://tsumika.net/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://tsumika.net/pv-fueta-nihon-1pct.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://tsumika.net/blog-88days-zaiko-gire.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://tsumika.net/windows-claude-code-setup.html</loc><lastmod>2026-08-03</lastmod></url>
   <url><loc>https://tsumika.net/access-kaiseki-zero.html</loc><lastmod>2026-07-30</lastmod></url>
@@ -21,6 +22,9 @@
   <url><loc>https://tsumika.net/tags.html</loc></url>
   <url><loc>https://tsumika.net/tag-実体験.html</loc></url>
   <url><loc>https://tsumika.net/tag-ブログ運営.html</loc></url>
+  <url><loc>https://tsumika.net/tag-アクセス解析.html</loc></url>
+  <url><loc>https://tsumika.net/tag-収益化.html</loc></url>
+  <url><loc>https://tsumika.net/tag-cloudflare.html</loc></url>
   <url><loc>https://tsumika.net/tag-自動化.html</loc></url>
   <url><loc>https://tsumika.net/tag-claude-code.html</loc></url>
   <url><loc>https://tsumika.net/tag-失敗談.html</loc></url>
