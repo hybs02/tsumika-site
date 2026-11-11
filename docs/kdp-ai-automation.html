@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude CodeでKindle本を「半自動」で量産する：実際のworkflow</title>
-<meta name="description" content="AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を自動化してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きを書きます。">
+<title>Claude CodeでKindle出版を半自動に。AIに渡した工程と、渡せなかった工程</title>
+<meta name="description" content="AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を Claude Code に渡してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きと、AI生成の申告などKDP側の決まりを書きます。">
 <link rel="canonical" href="https://tsumika.net/kdp-ai-automation.html">
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./style.css">
 <link rel="alternate" type="application/rss+xml" href="./feed.xml">
 <meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Claude CodeでKindle本を「半自動」で量産する：実際のworkflow">
-<meta property="og:description" content="AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を自動化してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きを書きます。">
+<meta property="og:title" content="Claude CodeでKindle出版を半自動に。AIに渡した工程と、渡せなかった工程">
+<meta property="og:description" content="AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を Claude Code に渡してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きと、AI生成の申告などKDP側の決まりを書きます。">
 <meta property="og:url" content="https://tsumika.net/kdp-ai-automation.html">
 <meta property="og:site_name" content="AI自動化で稼ぐラボ">
 <meta property="og:image" content="https://tsumika.net/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude CodeでKindle本を「半自動」で量産する：実際のworkflow", "description": "AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を自動化してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きを書きます。", "url": "https://tsumika.net/kdp-ai-automation.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-02", "dateModified": "2026-06-02"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude CodeでKindle出版を半自動に。AIに渡した工程と、渡せなかった工程", "description": "AIでKindle出版を効率化するといっても、全自動ではない。実際にKDPの制作を Claude Code に渡してみて分かった「AIに任せる部分」と「人間が握る部分」の線引きと、AI生成の申告などKDP側の決まりを書きます。", "url": "https://tsumika.net/kdp-ai-automation.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-02", "dateModified": "2026-06-02"}</script>
 
 </head>
 <body>
@@ -27,60 +27,40 @@
 </header>
 <main>
 <time>2026-06-02</time>
-<h1>Claude CodeでKindle本を「半自動」で量産する：実際のworkflow</h1>
+<h1>Claude CodeでKindle出版を半自動に。AIに渡した工程と、渡せなかった工程</h1>
 <p class="byline">執筆： <a href="./about.html">hybs02</a></p>
-<div class="tags"><span class="tag">KDP</span><span class="tag">Kindle出版</span><a class="tag" href="./tag-ai.html">AI</a><a class="tag" href="./tag-claude-code.html">Claude Code</a></div>
+<div class="tags"><span class="tag">KDP</span><span class="tag">Kindle出版</span><a class="tag" href="./tag-ai.html">AI</a><a class="tag" href="./tag-claude-code.html">Claude Code</a><a class="tag" href="./tag-ストック収入.html">ストック収入</a></div>
 
-<p>「AIでKindle本を量産」と聞くと、ボタンひとつで売れる本が湧いて出るような印象を持つかもしれません。実際にKDPの制作を自動化してみた結論を先に言うと、<strong>それは無理</strong>。でも、作業量を大きく減らすことは確実にできます。大事なのは「どこをAIに渡し、どこを人間が握るか」の線引きです。</p>
+<p>「AIでKindle本を量産」と聞くと、ボタンひとつで売れる本が湧いて出るような印象を持つかもしれません。実際にKDPの制作を <a href="./claude-code-towa.html">Claude Code</a> に渡してみた結論を先に言うと、<strong>それは無理</strong>でした。作業量は減らせました。ただ、減ったのは下書きまでです。大事なのは「どこをAIに渡し、どこを人間が握るか」の線引きでした。</p>
 <h2>なぜ「全自動」が成り立たないのか</h2>
-<p>KDPで本が埋もれる一番の原因は、中身が薄いこと。AIに丸投げして出てきた原稿をそのまま出すと、まさにこの「薄い本」になります。低評価がつき、誰にも読まれず終わる。</p>
-<p>つまり、<strong>企画の良し悪しと品質チェックだけは、人間が握らないと成立しない</strong>。逆にそこさえ握れば、執筆・整形・表紙づくりの重労働は丸ごと渡せる。これが「半自動」の正体です。</p>
+<p>AIに丸投げして出てきた原稿は、読めるけれど中身が薄い。そのまま出した本は埋もれる、と私は見ています。</p>
+<p>だから、企画の良し悪しと品質チェックだけは、人間が握ることにしました。そこを握ったうえで、下書きと整形までを渡す。これが「半自動」の中身です。</p>
 <h2>工程の分担（実際にこう分けた）</h2>
-<p>制作の流れを、AI担当と人間担当で割るとこうなります。</p>
-<p><strong>人間が握る</strong></p>
-<ul>
-<li>市場調査と、どの隙間を狙うかの判断</li>
-<li>差別化の方針（既存本に無い切り口を1つ決める）</li>
-<li>最終的な品質チェックと推敲</li>
-</ul>
-<p><strong>AIに任せる</strong></p>
-<ul>
-<li>決めた方針に沿ったアウトライン作成</li>
-<li>各章の下書き執筆</li>
-<li>整形やEPUB化のための機械的な処理</li>
-</ul>
-<p>ポイントは、AIに渡す前に<strong>「誰の、どんな悩みを、どう解決する本か」を人間が一文で決めておく</strong>こと。ここが曖昧なまま投げると、それっぽいだけの中身のない原稿が返ってきます。</p>
+<div class="table-wrap"><table><thead><tr><th>担当</th><th>工程</th></tr></thead><tbody><tr><td>人間</td><td>市場調査と、どの隙間を狙うかの判断</td></tr><tr><td>人間</td><td>差別化の方針（既存本に無い切り口を1つ決める）</td></tr><tr><td>人間</td><td>最終的な品質チェックと推敲</td></tr><tr><td>AI</td><td>決めた方針に沿ったアウトライン作成</td></tr><tr><td>AI</td><td>各章の下書き執筆</td></tr><tr><td>AI</td><td>整形やEPUB化のための機械的な処理</td></tr></tbody></table></div>
+<p>AIに渡す前に、「誰の、どんな悩みを、どう解決する本か」を人間が一文で決めておきます。ここが曖昧なまま投げると、それっぽいだけの中身のない原稿が返ってきます。</p>
 <h2>つまずきやすいところ</h2>
 <h3>一気に全部出させない</h3>
-<p>「本を1冊書いて」と一発で頼むより、章ごとに方向性を確認しながら進めたほうが、結果的に品質が安定して速い。ズレたまま最後まで書かれると、直す手間のほうが大きくなります。</p>
+<p>「本を1冊書いて」と一発で頼むより、章ごとに方向性を確認しながら進めたほうが、品質が安定しました。ズレたまま最後まで書かれると、直す手間のほうが大きくなります。</p>
 <h3>生成物を信じすぎない</h3>
-<p>事実関係や具体例は、人間が確かめる前提で。スラスラ出てくるぶん、検証を飛ばしたくなりますが、ここを省くと信頼を落とします。</p>
-<h2>守らないと危ない、プラットフォーム側のルール</h2>
-<p>AIで本を作るなら、Amazon側のルールを把握しておく必要があります。ここを軽視すると、本が消えるどころかアカウントごと止まる可能性があります。</p>
-<p>押さえておくべき点は主に3つです。</p>
-<p><strong>1つめは、AI生成の申告義務</strong>。出版・再出版のときに「AIが生成した本文・画像・翻訳が含まれるか」を申告する項目があります。AIツールで作った内容は、<strong>あとから大幅に手を入れても「AI生成」に当たる</strong>とされています。</p>
-<p>申告内容は購入者には見えず、印税や検索順位にも影響しないと案内されています。つまり<strong>隠す理由がない</strong>。逆に未申告が発覚すると、削除やアカウント停止のリスクがあります。</p>
-<p>なお、人間が書いた文章に対する校正や壁打ちのような「AI補助」は、申告の対象外とされています。</p>
-<p><strong>2つめは、1日に出せる新規タイトル数の上限</strong>。AIによる大量投稿への対策として、1日あたりの新規タイトル数に制限が設けられています。量産のペースは、この枠内で組む必要があります。</p>
-<p><strong>3つめは、品質そのもの</strong>。「購入者をがっかりさせる内容」は明確に禁止されています。既存情報の寄せ集め、誤訳、無料で手に入る情報をまとめただけのもの。こうした本は削除対象です。</p>
-<p>ルールは変わることがあるので、<strong>出版前に必ず公式の最新のガイドラインを確認してください</strong>。この記事の内容は執筆時点のものです。</p>
+<p>事実関係や具体例は、人間が確かめる前提で。スラスラ出てくるぶん、検証を飛ばしたくなります。ブログの下書きでも同じことが起きていて、<a href="./blog-88days-zaiko-gire.html">経緯を知らないAIに読ませたら間違いが次々に出た話</a> に書きました。</p>
+<h2>守らないと本が消える、KDP側の決まり</h2>
+<p>AIで本を作るなら、Amazon側の決まりを把握しておく必要があります。ここからは、2026年11月に <a href="https://kdp.amazon.co.jp/ja_JP/help/topic/G200672390" rel="noopener" target="_blank">KDPのコンテンツガイドライン</a> で確かめた内容です。</p>
+<div class="table-wrap"><table><thead><tr><th>決まり</th><th>中身</th></tr></thead><tbody><tr><td>AI生成の申告</td><td>新しい本を出す時と、既存の本を編集して出し直す時に、AI生成のテキスト・画像・翻訳があれば知らせる必要がある。表紙の画像も含む</td></tr><tr><td>AI生成に当たる範囲</td><td>AIのツールで作った内容は、あとから大幅に編集しても「AI生成」と見なされる</td></tr><tr><td>申告が要らない範囲</td><td>自分で書いたものをAIで直す・磨く・誤りを探す、案出しにだけ使う、は「AIアシスト」で開示不要</td></tr><tr><td>品質</td><td>読者の満足を得られないコンテンツ、内容を正確に表していない記述は認められない</td></tr><tr><td>従わなかった時</td><td>ガイドラインに従っていないコンテンツは、却下または削除される</td></tr></tbody></table></div>
+<p>下書きをAIに書かせる作り方は、あとでどれだけ手を入れても「AI生成」です。申告は義務なので、迷ったら申告する側に倒しています。</p>
+<p>もう1つ、新規タイトルの数には上限があります。AIによる大量投稿への対策として2023年9月に導入が報じられたもので、数は上のガイドラインのページには書かれていません。量産のペースは、その枠の中で組むことになります。</p>
+<p>決まりは変わることがあります。上の表は2026年11月の時点のものです。</p>
 <h2>実際にやってみて感じたこと</h2>
-<p>工程を分けてAIに渡す形にしてから、<strong>1冊にかかる時間は明確に短くなりました</strong>。特に短縮効果が大きかったのは、アウトラインから下書きを起こす部分です。</p>
+<p>工程を分けてAIに渡す形にしてから、1冊にかかる時間は短くなりました。短くなったのは、アウトラインから下書きを起こす部分です。</p>
 <p>一方で、時間が減らなかった工程もあります。<strong>企画と最終チェック</strong>です。むしろ、生成が速くなった分だけ、チェックすべき分量が増えて負担が上がった面もありました。</p>
-<p>つまり「AIを入れれば全工程が楽になる」わけではなく、<strong>楽になる工程と、変わらない工程がはっきり分かれる</strong>というのが実感です。楽になった時間を、そのまま企画と品質チェックに再投資できるかどうかで、結果は変わってくると思います。</p>
-<h2>量産を成り立たせるコツ</h2>
-<ul>
-<li><strong>1冊入魂より、型を作って回す</strong>。2冊目以降は同じ手順を流用できる</li>
-<li><strong>シリーズ化</strong>して関連本を並べる。1冊が当たると横展開で売れる</li>
-<li>売れ筋が見えたら、そのジャンルに資源を寄せる</li>
-</ul>
+<p>「AIを入れれば全工程が楽になる」わけではなく、楽になる工程と、変わらない工程がはっきり分かれました。</p>
+<p>2冊目からは、同じ手順を流用しています。シリーズにして関連する本を並べる形にしていますが、それで売れるかは、まだ言えません。</p>
 <h2>向いているジャンル、向いていないジャンル</h2>
-<p>やってみて感じた相性の差も書いておきます。</p>
-<p><strong>向いているのは、手順や知識を整理して伝えるタイプ</strong>です。何かのやり方、入門的な解説、体系立てて説明できるもの。こうしたジャンルは構成が組みやすく、AIの下書きも使いやすい。</p>
-<p><strong>向いていないのは、書き手固有の体験や人格が価値になるもの</strong>です。エッセイ、体験記、独自の主張。これらは「誰が書いたか」が中身そのものなので、AIに任せる部分がほとんど残りません。</p>
-<p>そして皮肉なことに、<strong>前者は競争が激しく、後者は競争が少ない</strong>。効率よく作れるジャンルほど、同じことを考える人が多いわけです。ここをどう考えるかが、量産で埋もれるかどうかの分かれ目だと思います。</p>
-<h2>まとめ</h2>
-<p>AIはKDPの執筆・整形という重労働を肩代わりしてくれます。握るべきは「企画」と「品質」。この線引きさえ外さなければ、1冊にかかる時間は劇的に縮みます。Kindle以外の収益化と組み合わせる発想は <a href="./ai-fukugyo-jidouka-5.html">AIで副業を自動化する方法</a> に、道具としての <a href="./claude-code-towa.html">Claude Code</a> の解説も合わせてどうぞ。</p>
+<p>向いていると感じたのは、手順や知識を整理して伝えるタイプです。何かのやり方、入門的な解説、体系立てて説明できるもの。構成が組みやすく、AIの下書きも使いやすい。</p>
+<p>向いていないと見ているのは、書き手固有の体験や人格が価値になるものです。エッセイ、体験記、独自の主張。「誰が書いたか」が中身そのものなので、AIに任せる部分がほとんど残りません。</p>
+<p>効率よく作れるジャンルは、同じことを考える人も多いはずです。調べて数えたわけではありませんが、量産で埋もれるかどうかは、ここをどう考えるかで分かれると思っています。</p>
+<h2>短くなったのは下書きまで</h2>
+<p>私の場合、AIに渡して短くなったのは下書きと整形までで、企画と最終チェックの時間は減っていません。握るのは「企画」と「品質」です。</p>
+<p>ほかに試した稼ぎ方と、やらなかったものは <a href="./ai-fukugyo-jidouka-5.html">AIで副業を自動化する現実的な方法</a> に書きました。</p>
 <aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
 <section class="newsletter">
 <h3>AI自動化の更新をメールで受け取る</h3>
