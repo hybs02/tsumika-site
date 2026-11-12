@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="AI自動化で稼ぐラボ">
 <meta property="og:image" content="https://tsumika.net/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・固定費は年1,800円だけ】", "description": "このサイト自体を、AI（Claude Code）で「記事が自動公開されるブログ」として構築した全工程を、実際の費用・構成・つまずき・その後の運用結果まで包み隠さず公開します。", "url": "https://tsumika.net/ai-blog-build-log.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-06-03"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・固定費は年1,800円だけ】", "description": "このサイト自体を、AI（Claude Code）で「記事が自動公開されるブログ」として構築した全工程を、実際の費用・構成・つまずき・その後の運用結果まで包み隠さず公開します。", "url": "https://tsumika.net/ai-blog-build-log.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-11-12"}</script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
   <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
 </header>
 <main>
-<time>2026-06-03</time>
+<time>2026-06-03</time> <time class="updated" datetime="2026-11-12">更新 2026-11-12</time>
 <h1>AIで「自動更新ブログ」を作った全記録【Claude Code×GitHub Pages・固定費は年1,800円だけ】</h1>
 <p class="byline">執筆： <a href="./about.html">hybs02</a></p>
 <div class="tags"><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-claude-code.html">Claude Code</a><a class="tag" href="./tag-github-pages.html">GitHub Pages</a><a class="tag" href="./tag-自動化.html">自動化</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a></div>
@@ -49,14 +49,14 @@
 <p><strong>3つめは自動化のしやすさ</strong>。テキストファイルを置けば記事になる構造なら、「書き溜めて、1本ずつ出す」がそのままプログラムで書けます。管理画面をロボットに操作させるより、はるかに単純で壊れにくい。</p>
 <p>逆に言えば、<strong>デザインを凝りたい人や、スマホから記事を書きたい人にはこの構成は向きません</strong>。私は「軽さと自動化」を取りました。</p>
 <h2>使ったツールと費用（正直な内訳）</h2>
-<div class="table-wrap"><table><thead><tr><th>項目</th><th>内容</th><th>費用</th></tr></thead><tbody><tr><td>AIアシスタント</td><td>Claude Code（構築作業の相棒）</td><td>利用プラン分</td></tr><tr><td>ホスティング</td><td>GitHub Pages</td><td><strong>0円</strong></td></tr><tr><td>独自ドメイン</td><td><code>.net</code> をCloudflareで取得</td><td><strong>約1,800円/年</strong></td></tr><tr><td>アクセス解析</td><td>Cloudflare</td><td><strong>0円</strong></td></tr><tr><td>メール配信</td><td>Buttondown（無料枠）</td><td><strong>0円</strong></td></tr><tr><td>サイト生成</td><td>自作スクリプト（追加ソフトなし）</td><td>0円</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>内容</th><th>費用</th></tr></thead><tbody><tr><td>AIアシスタント</td><td>Claude Code（構築作業の相棒）</td><td>利用プラン分</td></tr><tr><td>ホスティング</td><td>GitHub Pages</td><td><strong>0円</strong></td></tr><tr><td>独自ドメイン</td><td><code>.net</code> をCloudflareで取得</td><td><strong>約1,800円/年</strong></td></tr><tr><td>アクセス解析</td><td>Cloudflare</td><td><strong>0円</strong></td></tr><tr><td>メール配信</td><td>Buttondown（無料枠）</td><td><strong>0円</strong></td></tr><tr><td>サイト生成</td><td>自作スクリプト（Python と Git で動く）</td><td>0円</td></tr></tbody></table></div>
 <p>つまり<strong>毎年の固定費はドメイン代だけ</strong>。月あたり150円、缶ジュース1本分です。内訳の詳細は <a href="./blog-hiyou-zenbu-kokai.html">運営費を全部公開した記事</a> にも書きました。</p>
 <h2>構築の流れ（実際の手順）</h2>
 <h3>1. 記事を「テキスト」で書ける仕組みにした</h3>
 <p>ブログ管理画面を使わず、テキストファイルを置けば記事になる形にしました。これだと量産も自動化もしやすい。<a href="./claude-code-towa.html">Claude Codeとは？</a> で触れたように、こうした&quot;仕組みづくり&quot;はAIが得意とするところです。</p>
 <h3>2. テキスト → サイトに変換する部分を作った</h3>
 <p>タイトルや日付などの情報を読み取り、記事ページ・トップページ・サイトマップ・RSSを自動生成するようにしました。ここはAIにコードを書いてもらい、動かしながら微調整。</p>
-<p>追加のソフトを一切入れず、パソコンに最初から入っている機能だけで組んだのがポイントです。<strong>依存するものが少ないほど、後で壊れにくい</strong>。この判断は、あとで効いてきました。</p>
+<p>動かすのに使っているのは、後から入れた Python と Git の2つです。Python は標準の機能だけで書き、追加のライブラリは入れていません。<strong>依存するものが少ないほど、後で壊れにくい</strong>。この判断は、あとで効いてきました。</p>
 <h3>3. GitHub Pagesで無料公開した</h3>
 <p>できあがったファイルをGitHubに置き、Pagesで公開。独自ドメインを当てる作業は、DNSとHTTPSのあたりで少し手が止まりました。詰まりどころは <a href="./domain-github-pages-tsumazuki.html">独自ドメイン接続でつまずいた3点</a> に詳しく書いています。</p>
 <h3>4. 「自動で1本ずつ公開」する仕組みにした</h3>
@@ -66,14 +66,14 @@
 <ul>
 <li><strong>文字化け</strong>：日本語の出力が崩れる問題に最初ぶつかりました。Windows特有の事情で、文字コードを指定して解決。</li>
 <li><strong>独自ドメインの反映待ち</strong>：DNSやHTTPS証明書の発行に時間がかかる。焦らず待つのが正解でした。</li>
-<li><strong>アクセス解析が0のまま</strong>：設置したのに数字が動かない。原因は広告ブロックによる遮断で、計測方法そのものを変えて解決しました。</li>
+<li><strong>アクセス解析が0のまま</strong>：設置したのに数字が動かない。原因は広告ブロックによる遮断で、計測方法そのものを変えました。今の数え方は取りこぼさない代わりに、人もボットも数えます。数の大半はボットです（<a href="./pv-fueta-nihon-1pct.html">記事ゼロでPVが増えた話</a>）。</li>
 <li><strong>「自動化＝放置で儲かる」ではない</strong>：仕組みは作れても、読まれて収益になるのは別問題です。</li>
 </ul>
 <h2>作ったあとに起きたこと</h2>
 <p>ここが、この手の記事にはあまり出てこない部分です。</p>
-<p><strong>作った仕組みは、静かに壊れます。</strong> 実際、公開の自動化が1ヶ月以上まるごと止まっていたのに、私はしばらく気づきませんでした。原因は、実行用の設定ファイルの改行コードがWindowsの想定と違っていたという、ごく些細な形式の違いです。エラーはログの中に溜まっていましたが、そのログを誰も読んでいなかった。</p>
+<p><strong>作った仕組みは、静かに壊れます。</strong> 実際、公開の自動化が1ヶ月以上まるごと止まっていたのに、私はしばらく気づきませんでした。原因は、実行用の設定ファイルの改行コードがWindowsの想定と違っていたという、ごく些細な形式の違いと、定期実行の登録そのものが消えていたことの2つでした。エラーはログの中に溜まっていましたが、そのログを誰も読んでいなかった。</p>
 <p>この経験から言えるのは、<strong>自動化で本当に必要なのは「動かす仕組み」より「止まったと気づく仕組み」</strong>だということです。作った直後は誰でも動作確認します。問題は、うまくいって安心したあとの数週間。そこで静かに壊れる。</p>
-<p>今は、状態を見れば異常が分かるようにしてあります。それでも見なければ意味がないので、月に一度は確認する、と決めました。</p>
+<p>管理用のパネルを開けば、異常が分かるようにはしてあります。月に一度は確認する、とも決めていました。それでも8月4日から10月末まで、在庫切れで88日、新しい記事が出ませんでした。パネルは開いた時にしか見えず、見に行かなければ届かなかったからです（<a href="./blog-88days-zaiko-gire.html">88日止まっていた話</a>）。今は、記事の補充そのものを Claude Code の定期実行が週2回行っています。</p>
 <h2>正直な現在地</h2>
 <p>ここまでで「<strong>器</strong>」は完成しました。でも器ができただけで、収益はまだ立っていません。これは誇張なく事実です。</p>
 <p>現在の実数——アクセス、購読者、収益、費用——は <a href="./report.html">運営記録</a> のページで、加工せずそのまま公開しています。良い数字も悪い数字も、動いたら更新します。</p>

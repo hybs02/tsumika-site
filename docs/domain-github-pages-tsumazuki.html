@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="AI自動化で稼ぐラボ">
 <meta property="og:image" content="https://tsumika.net/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方", "description": "無料のGitHub Pagesに独自ドメインを繋ぐ作業で、自分が実際に止まった3つの場所と解決方法を、設定値レベルで具体的に残します。", "url": "https://tsumika.net/domain-github-pages-tsumazuki.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-06-03"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方", "description": "無料のGitHub Pagesに独自ドメインを繋ぐ作業で、自分が実際に止まった3つの場所と解決方法を、設定値レベルで具体的に残します。", "url": "https://tsumika.net/domain-github-pages-tsumazuki.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-06-03", "dateModified": "2026-11-12"}</script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
   <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
 </header>
 <main>
-<time>2026-06-03</time>
+<time>2026-06-03</time> <time class="updated" datetime="2026-11-12">更新 2026-11-12</time>
 <h1>独自ドメインをGitHub Pagesに繋ぐまで、実際につまずいた3点と直し方</h1>
 <p class="byline">執筆： <a href="./about.html">hybs02</a></p>
 <div class="tags"><span class="tag">独自ドメイン</span><a class="tag" href="./tag-github-pages.html">GitHub Pages</a><span class="tag">DNS</span><span class="tag">HTTPS</span><a class="tag" href="./tag-実体験.html">実体験</a></div>
@@ -45,15 +45,16 @@
 </code></pre>
 <p>問題はここから。Cloudflareでドメインを取った場合、各レコードに「Proxy（プロキシ）」のオン/オフがあります。<strong>初期状態のオン（オレンジの雲）のままだと、GitHub PagesのHTTPS発行とぶつかって、うまく繋がらない</strong>ことがあります。</p>
 <p>直し方はシンプルで、オレンジの雲をクリックして<strong>灰色の雲（DNS only）に切り替える</strong>だけ。これに気づかず「DNSは合ってるのに繋がらない」とハマる人は多いはず。まず灰色、が安全です。</p>
+<p>この雲のスイッチは、あとで計測のためにもう一度触ります（下の「つながったあと」の節）。</p>
 <h2>つまずき3：HTTPSのチェックが「押せない」</h2>
 <p>DNSが通り、サイトが <code>http://</code> で見えるようになっても、肝心の「Enforce HTTPS（常時HTTPS化）」のチェックボックスが<strong>グレーで押せない</strong>。</p>
 <p>これは故障ではありません。GitHubがそのドメイン用の証明書を<strong>裏で発行している最中</strong>なだけ。発行が終わると自動でチェックできるようになります。体感では数分〜十数分。ここは「待つのが正解」で、何度も設定を触ると逆に時間がかかることもあります。手を止めて放置するのが一番早い、という珍しい工程です。</p>
-<h2>つまずき4：計測のために、あとから構成を変えることになった</h2>
-<p>これは接続時ではなく、しばらく運用してから起きた話です。</p>
+<h2>つながったあと：計測のために雲をオレンジにする</h2>
+<p>ここからはつまずきではなく、しばらく運用してから構成を変えた話です。</p>
 <p>アクセス解析を入れたのに数字が0のままで、原因を追うと<strong>広告ブロック機能が計測を遮断していた</strong>と分かりました。訪問者のブラウザに「見に来た」と報告させる方式では、ブラウザ側が拒否すればそれで終わりです。</p>
-<p>対処として、<strong>サイトへのアクセスを中継サービス経由に変え、通り道で数える方式</strong>に切り替えました。訪問者が何をブロックしようと、サイトを見るには必ずそこを通るので、取りこぼしません。</p>
+<p>対処として、<strong>サイトへのアクセスを中継サービス経由に変え、通り道で数える方式</strong>に切り替えました。やったことは、つまずき2で灰色（DNS only）にした雲を、オレンジ（Proxy）に切り替えることです。オレンジにすると、サイトへのアクセスが Cloudflare を通るようになり、そこで数えられます。訪問者が何をブロックしようと、サイトを見るには必ずそこを通るので、取りこぼしません。その代わり、人もボットも同じように数えます（<a href="./pv-fueta-nihon-1pct.html">記事ゼロでPVが増えた話</a>）。</p>
 <p>ここで重要なのが順番でした。中継を有効にする前に、<strong>暗号化通信（HTTPS）の設定を「Full」相当にしておく必要がある</strong>。ここを間違えると、転送が延々と繰り返されてサイトが表示できなくなります。私は先に設定を確認してから切り替えたので、無事でした。</p>
-<p>最初からこの構成にしておけば二度手間は避けられました。<strong>計測方法は、ドメインを繋ぐ段階で決めておくほうがいい</strong>というのが教訓です。</p>
+<p>最初から計測の方法を決めておけば、0のまま悩む時間は避けられました。<strong>計測方法は、ドメインを繋ぐ段階で決めておくほうがいい</strong>というのが教訓です。</p>
 <h2>どれくらい時間がかかるのか</h2>
 <p>これから同じことをやる人のために、時間の目安も書いておきます。</p>
 <p><strong>手を動かす作業自体は30分もかかりません</strong>。ドメインを買い、レコードを登録し、公開設定をする。それだけです。</p>

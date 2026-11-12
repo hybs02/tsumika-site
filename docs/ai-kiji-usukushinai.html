@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="AI自動化で稼ぐラボ">
 <meta property="og:image" content="https://tsumika.net/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIに記事を書かせるなら、これだけは守る「薄くしない」ための工夫", "description": "AIで記事を書くと、放っておけば\"いかにもAI\"な薄い文章になる。実際に運用しながら決めた、薄くしない・AIっぽさを消すための具体ルールを共有します。", "url": "https://tsumika.net/ai-kiji-usukushinai.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-25", "dateModified": "2026-07-25"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIに記事を書かせるなら、これだけは守る「薄くしない」ための工夫", "description": "AIで記事を書くと、放っておけば\"いかにもAI\"な薄い文章になる。実際に運用しながら決めた、薄くしない・AIっぽさを消すための具体ルールを共有します。", "url": "https://tsumika.net/ai-kiji-usukushinai.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-25", "dateModified": "2026-11-12"}</script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
   <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
 </header>
 <main>
-<time>2026-07-25</time>
+<time>2026-07-25</time> <time class="updated" datetime="2026-11-12">更新 2026-11-12</time>
 <h1>AIに記事を書かせるなら、これだけは守る「薄くしない」ための工夫</h1>
 <p class="byline">執筆： <a href="./about.html">hybs02</a></p>
 <div class="tags"><span class="tag">AI記事</span><span class="tag">ライティング</span><span class="tag">品質</span><a class="tag" href="./tag-実体験.html">実体験</a></div>
@@ -55,7 +55,7 @@
 <p>ここまで偉そうに書いてきましたが、白状します。<strong>私自身がこのルールを守れていませんでした</strong>。</p>
 <p>自分のサイトの記事を、あとから第三者の視点で点検してみたところ、こんな状態でした。</p>
 <ul>
-<li><strong>どの記事も目標の半分の長さしかない</strong>。自分で「2,000字」と基準を決めていたのに、実際は平均1,100字ほど。見出しの数は足りているのに、中身が浅い。</li>
+<li><strong>どの記事も目標の半分の長さしかない</strong>。自分で「2,000字」と基準を決めていたのに、点検した時点の10本は平均1,100字ほど。見出しの数は足りているのに、中身が浅い。</li>
 <li><strong>「正直」「地味」「薄い」という単語を使いすぎ</strong>。AIっぽさを避けようとした結果、<strong>その避け方自体がテンプレになっていた</strong>。</li>
 <li><strong>具体的な数字が、ほぼ一つしかない</strong>。「一次情報を入れろ」と書いておきながら、同じ「年1,800円」を複数の記事で使い回していた。</li>
 <li><strong>同じ話を2つの記事で書いていた</strong>。似た内容の記事が並び、どちらを読めばいいのか分からない状態になっていた。</li>
@@ -72,8 +72,10 @@
 <li><strong>記事同士の重複を見る</strong>。似たテーマが2本あるなら、統合するか役割を分ける。</li>
 </ul>
 <p>どれも数値で分かることなので、感覚に頼らずに済みます。</p>
+<p>点検した10本は、この記事を出した7月25日のうちに、材料を足してすべて書き直しました。今はどれも1,800字を超えています。</p>
 <h2>一番大事なこと</h2>
-<p>突き詰めると、「AIに書かせる」のではなく「<strong>AIに下書きさせて、人が仕上げる</strong>」という分担です。AIは速い。でも、何を伝えたいか、どこに自分の経験を足すかを決めるのは人の仕事。ここを手放すと、途端に薄くなる。</p>
+<p>突き詰めると、「AIに書かせて終わり」にしないことです。AIは速い。でも、何を伝えたいか、どこに自分の経験を足すかの基準が無いまま任せると、途端に薄くなる。</p>
+<p>このブログでは今、記事の下書きから推敲、在庫に入れるかの判断までを Claude Code の定期実行が行っていて、私は在庫に入る前に読んでいません。その代わりに、上のルールの多くを、機械の検査と、書いた経緯を知らない別の AI の読み手による関門にしています。通らなかった記事は在庫に入りません。関門が見落としたものは、そのまま公開されます。</p>
 <p>道具としてのAIの実力は <a href="./claude-code-towa.html">Claude Codeの正体</a> にも書きましたが、結局は使い手の基準次第だと感じています。</p>
 <h2>「薄い」と「短い」は別物</h2>
 <p>最後にひとつ補足を。長さと中身は比例しません。</p>
@@ -84,7 +86,7 @@
 <ul>
 <li>AIの文章が薄いのは「一般論・同じ型・無難」の3つが原因</li>
 <li>一次情報を入れ、定型句を消し、構造を変え、立場を取る</li>
-<li>仕上げと最終チェックは人が握る——ここだけは手放さない</li>
+<li>最終チェックは基準を決めて関門にする。このブログでは今、その関門を機械の検査と別の AI の読み手が受け持っている</li>
 </ul>
 <aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
 <section class="newsletter">

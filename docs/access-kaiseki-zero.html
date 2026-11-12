@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="AI自動化で稼ぐラボ">
 <meta property="og:image" content="https://tsumika.net/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "アクセス解析がずっと0だった。原因は広告ブロックでした", "description": "自分でサイトを開いているのに解析画面のアクセス数が0のまま。原因を追ったら、よくある計測方法そのものの弱点にぶつかりました。対処までの記録です。", "url": "https://tsumika.net/access-kaiseki-zero.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-30", "dateModified": "2026-07-30"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "アクセス解析がずっと0だった。原因は広告ブロックでした", "description": "自分でサイトを開いているのに解析画面のアクセス数が0のまま。原因を追ったら、よくある計測方法そのものの弱点にぶつかりました。対処までの記録です。", "url": "https://tsumika.net/access-kaiseki-zero.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-07-30", "dateModified": "2026-11-12"}</script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
   <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
 </header>
 <main>
-<time>2026-07-30</time>
+<time>2026-07-30</time> <time class="updated" datetime="2026-11-12">更新 2026-11-12</time>
 <h1>アクセス解析がずっと0だった。原因は広告ブロックでした</h1>
 <p class="byline">執筆： <a href="./about.html">hybs02</a></p>
 <div class="tags"><a class="tag" href="./tag-アクセス解析.html">アクセス解析</a><a class="tag" href="./tag-cloudflare.html">Cloudflare</a><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a></div>
@@ -49,19 +49,20 @@
 <h2>解決策：ブラウザに頼らず数える</h2>
 <p>考え方を変えました。ブラウザに報告させるのをやめて、<strong>サイトに届く手前の通り道で数える</strong>方式にしたんです。</p>
 <p>具体的には、サイトへのアクセスをいったん中継サービス（自分が使っているドメイン管理サービス）経由にして、そこを通った回数をそのまま記録してもらう形にしました。訪問者のブラウザが何をブロックしようと、<strong>そもそもサイトを見るには必ずそこを通る</strong>ので、数を取りこぼしません。</p>
-<p>切り替え後に確認したら、ちゃんとアクセスが記録されていました。設置してから今日までの分が、正しく積み上がっている。</p>
+<p>切り替え後に確認したら、ちゃんとアクセスが記録されていました。</p>
+<p>ただし、この方式は人とボットを分けません。検索エンジンの巡回や機械的な取得も、人の閲覧と同じように数えます。このサイトでは、数の大半がボットでした。中身の分け方は <a href="./pv-fueta-nihon-1pct.html">記事ゼロでPVが増えた話</a> に書いています。</p>
 <h2>切り替えでハマった点</h2>
 <p>ひとつだけ注意が要りました。中継を有効にする前に、<strong>暗号化通信（HTTPS）の設定を先に正しくしておく</strong>必要があったことです。</p>
 <p>ここを間違えると、サイトが延々と転送を繰り返して表示できなくなる、という事故が起きます。順番を守れば何も起きません。逆に言えば、順番を間違えると一時的にサイトが落ちます。私は先に設定を確認してから切り替えたので、無事でした。</p>
 <h2>学んだこと</h2>
 <p><strong>計測は「入れたら終わり」ではなく、「本当に数えているか」を確かめて初めて終わり</strong>です。0という数字を見たとき、私は最初「まだ誰も来ていないんだな」と解釈しかけました。実際は「来ているのに数えられていない」だった。この二つは天と地ほど違います。</p>
 <p>数字が出ない時に「人が来ていない」と結論づける前に、<strong>計測そのものを疑う</strong>。これは今後もずっと使える教訓になりました。</p>
-<p>もうひとつ。今回のようなブラウザ側の計測は手軽ですが、限界があります。手軽さと正確さは別物で、どちらが要るかは目的次第。私の場合は、少ないアクセスを正確に把握したかったので、正確さを取りました。</p>
+<p>もうひとつ。ブラウザ側の計測は、広告ブロックで取りこぼします。通り道の計測は取りこぼさない代わりに、ボットも数えます。どちらも「人が何人読んだか」をそのまま出してはくれません。私は取りこぼさないほうを選び、人が来ているかは、検索結果に出た回数と押された回数（Search Console）で見ることにしています。</p>
 <h2>まとめ</h2>
 <ul>
 <li>アクセス解析が0でも、来ていないとは限らない</li>
 <li>よくある解析方法は、広告ブロックで普通に取りこぼす</li>
-<li>通り道で数える方式にすれば、ブロックの影響を受けない</li>
+<li>通り道で数える方式なら広告ブロックで取りこぼさないが、人もボットも数える</li>
 <li>切り替え時は暗号化設定の順番に注意</li>
 </ul>
 <p>サイト全体をどう構築したかは <a href="./ai-blog-build-log.html">自動更新ブログを作った全記録</a> に書いています。運用でつまずいた話は <a href="./jidoka-tomatteita.html">1ヶ月止まっていた件</a> のほうが生々しいかもしれません。</p>
