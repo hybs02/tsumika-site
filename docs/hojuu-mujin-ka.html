@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>記事の補充をClaude Codeの定期実行で無人に。人に聞かない代わりの7つの関門</title>
+<meta name="description" content="ブログの記事の補充を、Claude Codeの週2回の定期実行で無人にしました。人に聞かずに在庫へ入れる代わりに置いた7つの関門と、11月14日までの4回で実際に何が起きたか（関門で1本止まった回を含む）を書きます。">
+<link rel="canonical" href="https://tsumika.net/hojuu-mujin-ka.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="alternate" type="application/rss+xml" href="./feed.xml">
+<meta name="google-site-verification" content="ybmmLUp1AaJnhNIJNBfS7Xn7m5g3ztS8gtOPkI4Inzg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="記事の補充をClaude Codeの定期実行で無人に。人に聞かない代わりの7つの関門">
+<meta property="og:description" content="ブログの記事の補充を、Claude Codeの週2回の定期実行で無人にしました。人に聞かずに在庫へ入れる代わりに置いた7つの関門と、11月14日までの4回で実際に何が起きたか（関門で1本止まった回を含む）を書きます。">
+<meta property="og:url" content="https://tsumika.net/hojuu-mujin-ka.html">
+<meta property="og:site_name" content="AI自動化で稼ぐラボ">
+<meta property="og:image" content="https://tsumika.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "記事の補充をClaude Codeの定期実行で無人に。人に聞かない代わりの7つの関門", "description": "ブログの記事の補充を、Claude Codeの週2回の定期実行で無人にしました。人に聞かずに在庫へ入れる代わりに置いた7つの関門と、11月14日までの4回で実際に何が起きたか（関門で1本止まった回を含む）を書きます。", "url": "https://tsumika.net/hojuu-mujin-ka.html", "author": {"@type": "Person", "name": "hybs02"}, "publisher": {"@type": "Organization", "name": "AI自動化で稼ぐラボ"}, "datePublished": "2026-11-16", "dateModified": "2026-11-16"}</script>
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./index.html">AI自動化で稼ぐラボ</a>
+  <p class="tagline">Claude CodeでブログとAI自動化を実際に運用している記録</p>
+</header>
+<main>
+<time>2026-11-16</time>
+<h1>記事の補充をClaude Codeの定期実行で無人に。人に聞かない代わりの7つの関門</h1>
+<p class="byline">執筆： <a href="./about.html">hybs02</a></p>
+<div class="tags"><a class="tag" href="./tag-実体験.html">実体験</a><a class="tag" href="./tag-ブログ運営.html">ブログ運営</a><a class="tag" href="./tag-自動化.html">自動化</a><a class="tag" href="./tag-claude-code.html">Claude Code</a></div>
+
+<p>ブログの記事の補充を、Claude Code の定期実行で無人にしました。毎週水曜と土曜の朝10時に、Claude Code が自分でブログを点検します。公開できる在庫が足りなければ1本書き、7つの関門を通ったものだけを在庫に入れます。</p>
+<p>こうしたのは、このブログが8月から <a href="./blog-88days-zaiko-gire.html">88日止まっていた</a> からです。その時に補充のやり方を Claude Code のスキルにしましたが、スキルは頼んだ時にしか動きません。あの記事の最後の見出しは「在庫は3本。それでも、頼まなければまた切れる」でした。</p>
+<p>1回目は11月4日に動き、11月14日までに4回動いています。人に聞かずに在庫まで入れるので、出来の悪い記事がそのまま出ていく心配があります。そこをどう防いでいるかと、4回で実際に何が起きたかを書きます。</p>
+<h2>何が動いているか</h2>
+<p>使っているのは、Claude Code のデスクトップアプリにある定期実行です。曜日と時刻を決めておくと、その時刻に新しい作業を自分で始めます。6月にこの仕組みを作った時は、クラウドの定期実行がつながらず、PC 側で Claude Code を無人で呼ぶ設定もうまくいきませんでした。今回はアプリの中の定期実行なので、そのどちらも要りません。追加の費用はかかっていません。Claude Code の有料の契約の中で動き、その契約はほかの作業と共用です（費用の考え方は <a href="./blog-hiyou-zenbu-kokai.html">個人ブログの運営費を全部公開する</a> に書いています）。</p>
+<div class="table-wrap"><table><thead><tr><th>決めたこと</th><th>中身</th></tr></thead><tbody><tr><td>曜日と時刻</td><td>水曜と土曜の朝10時。公開は月曜と木曜なので、その前に在庫を見る</td></tr><tr><td>指示書</td><td>ブログのスキルの「無人で回す」手順に従う。人に質問しない。新しい記事を足すより、サイト全体の質と食い違いを先に見る</td></tr><tr><td>守ること</td><td>書かない題材・同じ事実は同じ数字・公開済みの記事は消さない、など</td></tr></tbody></table></div>
+<p>手順はこの順番です。</p>
+<div class="table-wrap"><table><thead><tr><th>順番</th><th>やること</th></tr></thead><tbody><tr><td>1</td><td>健康診断。最後の公開日・在庫の本数・本番のサイトが見られるか</td></tr><tr><td>2</td><td>自動公開のタスクが消えていたら登録し直す</td></tr><tr><td>3</td><td>月の最初の回だけ、<a href="./report.html">運営記録</a> の数字を更新する</td></tr><tr><td>4</td><td>公開済みと在庫の記事の題と冒頭を全部読む</td></tr><tr><td>5</td><td>在庫の記事を読み直し、古くなった数字や記事どうしの食い違いを直す</td></tr><tr><td>6</td><td>公開済みの記事を1本選んで手入れする。手入れで数字や結論が変わったら、同じ事実を書いているほかの記事もそろえる</td></tr><tr><td>7</td><td>公開できる在庫が4本未満なら、1本書いて足す</td></tr><tr><td>8</td><td>変更を GitHub に上げて公開の仕組みに渡し、報告を残す</td></tr></tbody></table></div>
+<p>2番目は、7月に <a href="./jidoka-tomatteita.html">1ヶ月止まっていた</a> 時、定期実行の登録そのものが消えていた穴を塞ぐためのものです。新しい記事を書くのは7番目で、先に全体を読ませています。新しい記事が前の記事と食い違ったり、同じ話をくり返したりしないようにするためです。</p>
+<h2>人に聞かない代わりの関門</h2>
+<p>6月に <a href="./jido-kokai-unyo.html">自動公開を作った</a> 時は、公開してよいかの判断（推敲して、公開してよい印を付ける所）は私が持っていました。88日止まった後に決めた補充の手順も、最後は「私が読み、了承したものだけ在庫に入れる」でした。定期実行の回では、その判断を人の手から外しています。代わりに置いたのが、在庫に入れる前の7つの関門です。1つでも通らなければ、その記事は下書きに残して、在庫には入れません。</p>
+<div class="table-wrap"><table><thead><tr><th>関門</th><th>中身</th></tr></thead><tbody><tr><td>機械の検査</td><td>字数・リンク切れ・誇大表現・決まり文句などの ERROR が0</td></tr><tr><td>経緯を知らない AI の判定</td><td>下書きを初めて読む読み手が「このまま出せる」か「直せば出せる」と判定した</td></tr><tr><td>必須の直し</td><td>その読み手が「必須」とした指摘を全部直した。事実の指摘は元のファイルで確かめてから直す</td></tr><tr><td>2回目の読み</td><td>必須が3件以上あった時は、直した版をもう一度読ませて、必須が0</td></tr><tr><td>動かして確かめる</td><td>記事に載せたコマンドやコードは、このPCで実際に動かした</td></tr><tr><td>越えない線</td><td>書いてはいけない話に触れていない</td></tr><tr><td>食い違わない</td><td>公開済み・在庫の記事と、数字や結論が食い違っていない</td></tr></tbody></table></div>
+<p>題材の選び方にも決まりを足しました。人に聞かないと書けない題材は選ばせません。その時の気持ちや判断の理由は、ファイルには残っていないからです。ファイルと記録で確かめられる数字だけで書ける題材にして、確かめられない所を残した記事は在庫に入れない。書ける題材が無い回は、書かずに「題材切れ」と報告させます。ブログの運営や稼ぐ仕組みに関係しない記事で埋めるより、在庫が減るほうを選ぶ決まりです。</p>
+<p>記事の中の約束も拾わせます。<a href="./dougu-site-sokujitsu-kokai.html">ツールサイトの記事</a> で、公開から2週間の11月15日ごろに残すか捨てるかを決めると書きました。その日を過ぎた最初の回は、判定に使う数字を最優先の題材の候補にします。</p>
+<h2>4回で起きたこと</h2>
+<p>11月14日までの4回を、報告と変更の記録から拾うとこうです。</p>
+<div class="table-wrap"><table><thead><tr><th>回</th><th>公開済みの手入れ</th><th>補充</th></tr></thead><tbody><tr><td>11月4日</td><td>6月の副業の記事を11月の実数に合わせた</td><td>ツールサイトの記事を書いて在庫へ</td></tr><tr><td>11月7日</td><td><a href="./claude-code-towa.html">Claude Codeとは？</a> を手入れ</td><td>Chrome 拡張の記事を書いて在庫へ</td></tr><tr><td>11月11日</td><td>6月の記事を1本手入れし、同じ事実を書いていたもう1本もそろえた</td><td>1本書いたが、2回目の読みで必須の指摘が残り、下書きに置いた</td></tr><tr><td>11月14日</td><td>6月の記事を1本手入れし、在庫に入れた記事と食い違う1本もそろえた</td><td>11日の下書きの指摘を直し、関門を最後まで通して在庫へ</td></tr></tbody></table></div>
+<p>11月11日の回は、関門が働いた回です。1回目の読みで必須の指摘が3件以上あり、直した版をもう一度読ませても必須が残りました。その回は在庫に入れず、次の回で残りを直してから入れています。</p>
+<p>1回目の11月4日の回は、記録の上では10時10分に始まり、10時23分に終わっていました。中身はこうです。</p>
+<div class="table-wrap"><table><thead><tr><th>やったこと</th><th>中身</th></tr></thead><tbody><tr><td>在庫の点検</td><td>在庫の2本を読み直した。事実は今と合っていて、直していない</td></tr><tr><td>公開済みの手入れ</td><td>6月の <a href="./ai-fukugyo-jidouka-5.html">AIで副業を自動化する現実的な方法</a> を、11月時点の実数に合わせた（収益0円・出品0個・小さな道具を11月1日に公開）。見直しの時期を、ほかの記事とそろえて12月にした</td></tr><tr><td>補充</td><td><a href="./dougu-site-sokujitsu-kokai.html">ツールサイトを作ったその日に公開した話</a> を書いた。経緯を知らない読み手の判定は「直せば出せる」で、必須の指摘2件を直して在庫に入れた</td></tr><tr><td>在庫の本数</td><td>2本から3本へ</td></tr></tbody></table></div>
+<p>手入れした6月の記事は、11月の実数に照らすと古いままでした。古い記事は書いた日の事実のまま止まるので、新しい記事と並べると食い違います。補充のたびに1本ずつ直す決まりにしたので、古い記事も少しずつ今に追いつきます。</p>
+<h2>残っている穴</h2>
+<p>穴は3つあります。</p>
+<p>1つ目は、私のPCが起きていて、アプリが開いている時しか動かないことです。PC がスリープ中か、アプリを閉じていれば、その時刻には動きません。<a href="https://code.claude.com/docs/en/desktop-scheduled-tasks" rel="noopener" target="_blank">公式のドキュメント</a> では、次に起動か復帰した時に、直近7日で逃した回のうち最新の1回だけをやり直します。水曜の朝の回が水曜の夜に動く、ということは起こります。逃した回が2回あれば、1回分は戻りません。</p>
+<p>2つ目は、在庫の数が増えないことです。出るのは週2本、足すのも多くて週2本なので、うまく回っても在庫は横ばいです。1回飛ぶか「題材切れ」になるたびに1本ずつ減ります。</p>
+<p>3つ目は、出る前に私が読まなくなったことです。関門が見落とすものは、そのまま月曜か木曜に出ます。在庫に入ってから出るまでは、早くて1週間、長いと2週間近くあります。毎回の報告を読めば、出る前に止めることもできます。止める時は、在庫のファイルから「推敲済み」の印（reviewed: true）を外せば、自動公開に乗りません。ただ、関門が見落とした記事を止められるのは、私が報告を開いた時だけです。</p>
+<aside class="cta"><h3>このブログについて</h3><p>当サイトは「AIで自動更新するブログ」を実際に運営しながら、その記録を公開しています。仕組みの全工程は<a href="./ai-blog-build-log.html">構築の全記録</a>に、アクセスや収益の実数は<a href="./report.html">運営記録</a>にまとめています。</p></aside>
+<section class="newsletter">
+<h3>AI自動化の更新をメールで受け取る</h3>
+<p>新しい実体験記事を公開したらお知らせします。配信解除はいつでも。</p>
+<form action="https://buttondown.com/api/emails/embed-subscribe/ver273" method="post" target="_blank">
+<input type="email" name="email" placeholder="you@example.com" required>
+<button type="submit">登録する</button>
+</form></section>
+</main>
+<footer class="site-foot">
+  <nav class="foot-nav"><a href="./about.html">運営者情報</a> · <a href="./privacy.html">プライバシーポリシー</a> · <a href="./report.html">運営記録（アクセス・収益の実数）</a></nav>
+  <p>&copy; 2026 hybs02</p>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ead1242eae9c4eca99d9a0822bf49563"}'></script>
+</body>
+</html>
